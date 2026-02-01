@@ -15,7 +15,7 @@ export const Pricing: React.FC = () => {
                     <ShieldCheck size={32} />
                 </div>
 
-                <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white">
+                <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white font-serif">
                     Soluciones a medida. <br />
                     <span className="text-norien-gold">Resultados garantizados.</span>
                 </h2>
@@ -28,7 +28,7 @@ export const Pricing: React.FC = () => {
                     Solicitar presupuesto a medida
                 </Button>
 
-                <p className="mt-6 text-xs text-norien-silver/40 uppercase tracking-widest">
+                <p className="mt-6 text-xs text-norien-silver/60 uppercase tracking-widest">
                     Sin compromisos • Auditoría inicial gratuita
                 </p>
             </div>

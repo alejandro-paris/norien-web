@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <Logo />
         </div>
         <div className="text-norien-silver text-sm">
-            &copy; {new Date().getFullYear()} Norien Automation. All rights reserved.
+            &copy; {new Date().getFullYear()} Agencia Norien. Todos los derechos reservados.
         </div>
         <div className="flex gap-6 text-sm text-norien-silver">
             <a 
@@ -24,14 +24,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               onClick={(e) => { e.preventDefault(); onNavigate('wip'); }}
               className="hover:text-norien-gold transition-colors"
             >
-              Privacy
+              Privacidad
             </a>
             <a 
               href="#" 
               onClick={(e) => { e.preventDefault(); onNavigate('wip'); }}
               className="hover:text-norien-gold transition-colors"
             >
-              Terms
+              Términos y Condiciones
             </a>
         </div>
       </div>

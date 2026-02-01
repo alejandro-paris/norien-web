@@ -14,7 +14,7 @@ export const WorkInProgress: React.FC<WorkInProgressProps> = ({ onBack }) => {
         <Hammer size={48} />
       </div>
       
-      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight font-serif">
         Estamos trabajando en ello
       </h2>
       
