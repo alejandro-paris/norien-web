@@ -1,42 +1,61 @@
 import React from 'react';
 import { Button } from './Button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Rocket, Megaphone, Headset, SquareCheckIcon, SquareCheckBig, ChartLine } from 'lucide-react';
+import { LightningEffect } from './LightningEffect';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onScrollToSection: (sectionId: string) => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onScrollToSection }) => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Background Ambient Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-subtle-glow opacity-60 rounded-full blur-3xl pointer-events-none"></div>
+    <section className='relative min-h-screen flex items-center overflow-hidden'>
+      <div className='container mx-auto px-6 md:px-12 relative z-10'>
+        <div className='text-center pt-20 lg:pt-0'>
+          <div className='mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs tracking-widest text-norien-gold uppercase animate-fade-in-up'>
+            <span className='w-1.5 h-1.5 rounded-full bg-norien-gold animate-pulse'></span>
+            Para PYMES por cita, reservas y membresías
+          </div>
 
-        <div className="container mx-auto px-6 md:px-12 relative z-10 text-center">
-            
-            <div className="mb-8 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs tracking-widest text-norien-gold uppercase animate-fade-in-up">
-                <span className="w-1.5 h-1.5 rounded-full bg-norien-gold animate-pulse"></span>
-                Automatización para negocios locales
-            </div>
+          <h1 className='text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] mb-8 tracking-tight text-white font-serif'>
+            Convierte conversaciones en reservas, citas y pagos.
+          </h1>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-gray-500 max-w-5xl mx-auto font-serif">
-                Tu negocio rinde más.  <br className="hidden md:block"/>
-                <span className="text-white">Tú trabajas menos.</span>
-            </h1>
+          <p className='text-norien-silver text-lg md:text-xl mb-10 leading-relaxed font-light'>
+            Automatizamos WhatsApp con IA y añadimos estrategia comercial
+            (scripts + campañas segmentadas) para captar, reactivar y cobrar sin
+            fricción.
+          </p>
 
-            <p className="text-norien-silver text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-Automatizamos las tareas repetitivas que os quitan horas cada día. Pasamos la gestión de mensajes y citas a sistemas que trabajan en segundo plano, para que tú y tu equipo podáis centraros al 100% en dar el mejor servicio sin interrupciones constantes.            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button className="w-full sm:w-auto text-lg px-8 py-4">
-                    Quiero ahorrar tiempo
-                    <ArrowRight size={20} />
-                </Button>
-                <p className="mt-4 sm:mt-0 text-sm text-norien-silver/60 sm:hidden">
-                    Resultados desde el primer mes.
-                </p>
-            </div>
-            
+          <div className='flex w-full justify-center flex-col sm:flex-row items-center lg:items-start gap-4'>
+            <Button
+              className='w-full sm:w-auto text-lg px-8 py-4'
+              onClick={() => onScrollToSection('#contacto')}
+            >
+              Quiero ahorrar tiempo
+              <ArrowRight size={20} />
+            </Button>
+          </div>
         </div>
-        
-        {/* Decorative Lines */}
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+        <div className='w-full flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 mt-16 text-sm text-norien-silver'>
+            <div className='flex items-center gap-2'>
+              <SquareCheckBig size={20} className='text-norien-gold' strokeWidth={2} />
+              <span className='text-base'>Implementación en 7/14 días</span>
+            </div>
+            <div className='flex items-center gap-2'>
+              <Megaphone size={20} className='text-norien-gold' />
+              <span className='text-base'>Campañas de reactivación y eventos</span>
+            </div>
+            <div className='flex items-center gap-2'>
+              <ChartLine size={20} className='text-norien-gold' />
+              <span className='text-base'>Handoff humano + reporting</span>
+            </div>
+        </div>
+      </div>
+
+      {/* Decorative bottom line */}
+      <div className='absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent'></div>
     </section>
   );
 };
