@@ -49,3 +49,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #B08D45;
 }
+
+.container {
+  @apply max-w-6xl
+}
+

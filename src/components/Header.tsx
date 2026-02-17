@@ -11,7 +11,7 @@ interface HeaderProps {
 
 const navLinks = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Precios', href: '#soluciones' },
+  { label: 'Tarifas', href: '#soluciones' },
   { label: 'Contacto', href: '#contacto' },
 ];
 

@@ -30,11 +30,20 @@ export const Features: React.FC = () => {
   return (
     <section id='servicios' className='py-24 md:py-32 relative scroll-mt-20'>
       <div className='container mx-auto px-6 md:px-12'>
-        <div className='mb-16 md:mb-24'>
-          <h2 className='text-3xl md:text-4xl font-bold mb-4 font-serif'>
+        <div className='mb-5 md:mb-10'>
+          <h2 className='text-3xl md:text-5xl font-bold mb-4 font-serif text-center'>
             Nuestros servicios
           </h2>
-          <div className='h-1 w-20 bg-norien-gold'></div>
+          <div className='h-1 w-20 mb-8 mx-auto bg-norien-gold'></div>
+          <div className='width-full flex justify-center mb-4'>
+            <div className='mx-auto inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs tracking-widest text-norien-gold uppercase animate-fade-in-up'>
+              <span className='w-1.5 h-1.5 rounded-full bg-norien-gold animate-pulse'></span>
+              Un sistema completo
+            </div>
+          </div>
+          <p className='text-xs text-norien-silver uppercase tracking-widest text-center'>
+            Captar • Agendar • Reactivar • Cobrar
+          </p>
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
@@ -45,13 +54,13 @@ export const Features: React.FC = () => {
           />
           <FeatureCard
             icon={<CalendarCheck size={24} />}
-            title=' Reservas y agenda sin fricción'
-            description='Sincronización con calendario y confirmaciones automáticas. Reduce no-shows y libera a tu equipo.'
+            title='Sistema de reservas y citas'
+            description='Gestión automática del calendario. Confirmaciones, recordatorios y reprogramaciones sin intervención manual. Más asistencia, menos bajas.'
           />
           <FeatureCard
             icon={<Workflow size={24} />}
-            title='Campañas segmentadas (reactivación & eventos)'
-            description='Mensajes masivos con estrategia: copies, segmentación y timing para recuperar clientes y llenar huecos.'
+            title='Mensajería masiva con estrategia'
+            description='Envío de mensajes a gran escala. Desarrollo de la oferta, copy y segmentación para llenar huecos y reactivar clientes.'
           />
           <FeatureCard
             icon={<BadgeEuro size={24} />}
@@ -59,7 +68,6 @@ export const Features: React.FC = () => {
             description='Recordatorios a impagos y pago directo (Stripe) desde el chat. Menos fricción, más cobros a tiempo.'
           />
         </div>
-      
       </div>
     </section>
   );
