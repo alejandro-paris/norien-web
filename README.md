@@ -21,9 +21,8 @@ src/site.ts        datos globales: nombre, descripción SEO, email, teléfono
 src/styles/        CSS global y tokens de marca (@theme de Tailwind)
 src/layouts/       BaseLayout: <head>, SEO, cabecera y pie
 src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords
-src/components/sections/  secciones de la portada (Hero, Statement, PhoneStory, SystemGold, Demo, Solutions, Contact)
-src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis)
-src/scripts/compass3d.ts  brújula 3D del hero (Three.js, carga diferida)
+src/components/sections/  secciones de la portada (Hero, Statement, ChatStory, SystemGold, Demo, Solutions, Contact)
+src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis) y línea guía
 src/pages/         una ruta por fichero; robots.txt se genera desde robots.txt.ts
 ```
 
@@ -39,7 +38,21 @@ La portada está pensada como una página de lanzamiento: secciones que se queda
 - Los elementos animados se marcan con atributos `data-*` (`data-hero`, `data-story`,
   `data-step`, `data-card`, `data-reveal`…) y `src/scripts/motion.ts` los busca.
 - La cabecera se vuelve oscura sobre cualquier sección con `data-dark`.
-- Three.js (~140 kB gzip) se carga bajo demanda y solo renderiza mientras el hero está en pantalla.
+
+### Línea guía
+
+Una línea de puntos baja por el margen izquierdo desde el hero hasta el vídeo demo
+(SVG dentro de `[data-guide-wrap]` en `src/pages/index.astro`). Se dibuja con el scroll:
+su punta va siempre al 60 % de la altura de la pantalla (72 % en móvil).
+
+- El trazado se calcula en JS a partir de los elementos de la página, así que se adapta
+  solo al contenido y al tamaño de pantalla. Las secciones que recorre usan la clase
+  `.guide-container`, que deja libre el margen izquierdo.
+- Cualquier elemento con `data-guide-node` crea un nodo que se enciende al llegar la línea.
+  Los nodos dentro de `[data-step]` controlan el chat de servicios: cada uno avanza la
+  conversación un paso (mensajes, "escribiendo…" y etiqueta flotante).
+- El último tramo va dentro de la sección del vídeo (`data-guide-final`) para que siga
+  fijo mientras el vídeo crece.
 
 ## Vídeo demo
 

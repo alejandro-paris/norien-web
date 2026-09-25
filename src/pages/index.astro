@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/sections/Hero.astro';
 import Statement from '../components/sections/Statement.astro';
-import PhoneStory from '../components/sections/PhoneStory.astro';
+import ChatStory from '../components/sections/ChatStory.astro';
 import SystemGold from '../components/sections/SystemGold.astro';
 import Demo from '../components/sections/Demo.astro';
 import Solutions from '../components/sections/Solutions.astro';
@@ -10,11 +10,29 @@ import Contact from '../components/sections/Contact.astro';
 ---
 
 <BaseLayout>
-  <Hero />
-  <Statement />
-  <PhoneStory />
-  <SystemGold />
-  <Demo />
+  <!-- La línea guía recorre desde el hero hasta el vídeo demo. -->
+  <div data-guide-wrap class="relative">
+    <svg data-guide class="pointer-events-none absolute left-0 top-0 z-20 hidden overflow-visible text-ink motion:block" aria-hidden="true">
+      <defs>
+        <mask id="guide-mask" maskUnits="userSpaceOnUse">
+          <path data-guide-mask fill="none" stroke="white" stroke-width="16" stroke-linecap="round"></path>
+        </mask>
+      </defs>
+      <path data-guide-track fill="none" stroke="currentColor" stroke-opacity="0.14" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 12"></path>
+      <path data-guide-path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 12" mask="url(#guide-mask)"></path>
+      <g data-guide-nodes></g>
+      <g data-guide-tip>
+        <circle r="14" fill="#c5a059" opacity="0.2"></circle>
+        <circle r="5" fill="#c5a059"></circle>
+      </g>
+    </svg>
+
+    <Hero />
+    <Statement />
+    <ChatStory />
+    <SystemGold />
+    <Demo />
+  </div>
   <Solutions />
   <Contact />
 </BaseLayout>

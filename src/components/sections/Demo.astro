@@ -6,10 +6,16 @@ import Compass from '../Compass.astro';
 const video = SITE.demoVideo;
 ---
 
-<section id="demo" data-demo data-dark class="relative bg-ink text-paper motion:h-[260vh]">
+<section id="demo" data-demo data-dark class="relative z-30 bg-ink text-paper motion:h-[260vh]">
   <div class="flex min-h-svh flex-col items-center justify-center gap-12 overflow-hidden px-6 py-24 motion:sticky motion:top-0 motion:h-svh motion:px-0 motion:py-0">
-    <div data-demo-copy class="relative z-10 text-center motion:absolute motion:inset-x-6 motion:top-[11svh]">
-      <p class="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-paper/60">Demo</p>
+    <!-- Tramo final de la línea guía: baja desde el borde de la sección hasta "Demo". -->
+    <span data-guide-final aria-hidden="true" class="guide-final absolute left-1/2 top-0 hidden -translate-x-1/2 motion:block"></span>
+
+    <div data-demo-copy class="relative z-10 text-center motion:absolute motion:inset-x-6 motion:top-[13svh]">
+      <p class="mb-3 inline-flex flex-col items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-paper/60">
+        <span data-guide-final-node aria-hidden="true" class="guide-node-dot hidden motion:block"></span>
+        Demo
+      </p>
       <h2 class="text-4xl font-bold tracking-tight text-paper md:text-6xl">
         Míralo <span class="text-gold">funcionando.</span>
       </h2>
