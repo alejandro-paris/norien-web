@@ -1,14 +1,31 @@
 ---
-import { SITE } from '../site';
+import logo from '../assets/img/Norien_Logo_Light.svg';
+import { SITE, NAV } from '../site';
 
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-ink/10 bg-paper-deep">
-  <div class="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-8 text-sm text-ink-soft md:flex-row md:justify-between">
-    <p>&copy; {year} {SITE.name}. Todos los derechos reservados.</p>
-    <p>
-      <a href={`mailto:${SITE.email}`} class="hover:text-ink">{SITE.email}</a>
-    </p>
+<footer data-dark class="bg-ink text-paper/70">
+  <div class="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-[2fr_1fr_1fr]">
+    <div>
+      <img src={logo.src} alt="Norien" width="132" height="24" class="h-6 w-auto" loading="lazy" />
+      <p class="mt-4 max-w-sm text-sm">
+        Automatización de WhatsApp con IA para negocios de citas, reservas y membresías.
+      </p>
+    </div>
+    <nav aria-label="Pie de página">
+      <ul class="space-y-2 text-sm">
+        {NAV.map((link) => (
+          <li><a href={link.href} class="hover:text-gold">{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <ul class="space-y-2 text-sm">
+      <li><a href={`mailto:${SITE.email}`} class="hover:text-gold">{SITE.email}</a></li>
+      <li><a href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer" class="hover:text-gold">{SITE.phoneDisplay}</a></li>
+    </ul>
+  </div>
+  <div class="border-t border-paper/10">
+    <p class="mx-auto max-w-7xl px-6 py-6 text-xs">&copy; {year} {SITE.name}. Todos los derechos reservados.</p>
   </div>
 </footer>

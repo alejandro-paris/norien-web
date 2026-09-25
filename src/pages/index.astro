@@ -1,76 +1,24 @@
 ---
-// Página provisional: contenido actual en HTML estático e indexable.
-// Se sustituirá por el nuevo diseño.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE } from '../site';
-
-const services = [
-  {
-    title: 'Atención 24/7 que convierte',
-    text: 'Respuesta inmediata en WhatsApp y cualificación automática. Menos leads perdidos, más reservas y citas.',
-  },
-  {
-    title: 'Sistema de reservas y citas',
-    text: 'Gestión automática del calendario: confirmaciones, recordatorios y reprogramaciones sin intervención manual.',
-  },
-  {
-    title: 'Mensajería masiva con estrategia',
-    text: 'Oferta, copy y segmentación para llenar huecos y reactivar clientes.',
-  },
-  {
-    title: 'Cobro y seguimiento automático',
-    text: 'Recordatorios de impagos y pago directo con Stripe desde el chat.',
-  },
-];
+import Hero from '../components/sections/Hero.astro';
+import Statement from '../components/sections/Statement.astro';
+import PhoneStory from '../components/sections/PhoneStory.astro';
+import SystemGold from '../components/sections/SystemGold.astro';
+import Demo from '../components/sections/Demo.astro';
+import Solutions from '../components/sections/Solutions.astro';
+import Contact from '../components/sections/Contact.astro';
 ---
 
 <BaseLayout>
-  <section class="mx-auto max-w-4xl px-6 py-24 text-center">
-    <p class="mb-6 text-xs uppercase tracking-widest text-ink-soft">
-      Para PYMES de citas, reservas y membresías
-    </p>
-    <h1 class="font-display text-4xl font-bold leading-tight md:text-6xl">
-      Convierte conversaciones en reservas, citas y pagos.
-    </h1>
-    <p class="mx-auto mt-8 max-w-2xl text-lg text-ink-soft">
-      Automatizamos WhatsApp con IA y añadimos estrategia comercial (guiones y campañas
-      segmentadas) para captar, reactivar y cobrar sin fricción.
-    </p>
-    <a
-      href="#contacto"
-      class="mt-10 inline-block rounded-md bg-ink px-8 py-4 font-medium text-paper hover:bg-ink-soft"
-    >
-      Quiero ahorrar tiempo
-    </a>
-  </section>
-
-  <section id="servicios" class="mx-auto max-w-6xl scroll-mt-8 px-6 py-20">
-    <h2 class="mb-12 text-center font-display text-3xl font-bold md:text-4xl">Nuestros servicios</h2>
-    <ul class="grid gap-6 md:grid-cols-2">
-      {services.map((s) => (
-        <li class="rounded-xl border border-ink/10 bg-white/60 p-8">
-          <h3 class="mb-3 font-display text-xl font-semibold">{s.title}</h3>
-          <p class="text-ink-soft">{s.text}</p>
-        </li>
-      ))}
-    </ul>
-  </section>
-
-  <section id="contacto" class="mx-auto max-w-3xl scroll-mt-8 px-6 py-20 text-center">
-    <h2 class="font-display text-3xl font-bold md:text-4xl">Contacto</h2>
-    <p class="mt-4 text-lg text-ink-soft">Escríbenos y te respondemos en menos de 24 horas.</p>
-    <div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-      <a href={`mailto:${SITE.email}`} class="rounded-md border border-ink/20 px-6 py-3 hover:border-ink">
-        {SITE.email}
-      </a>
-      <a
-        href={SITE.whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="rounded-md border border-ink/20 px-6 py-3 hover:border-ink"
-      >
-        WhatsApp {SITE.phoneDisplay}
-      </a>
-    </div>
-  </section>
+  <Hero />
+  <Statement />
+  <PhoneStory />
+  <SystemGold />
+  <Demo />
+  <Solutions />
+  <Contact />
 </BaseLayout>
+
+<script>
+  import '../scripts/motion';
+</script>

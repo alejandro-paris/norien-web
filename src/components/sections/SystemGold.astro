@@ -1,0 +1,33 @@
+---
+// Sección de fondo dorado: las cuatro fases del sistema en tipografía gigante.
+const words = ['Captar.', 'Agendar.', 'Reactivar.', 'Cobrar.'];
+
+const facts = [
+  { big: '7–14 días', small: 'de implementación' },
+  { big: '24/7', small: 'atención en WhatsApp' },
+  { big: 'Campañas', small: 'de reactivación y eventos' },
+  { big: 'Handoff humano', small: 'y reporting de resultados' },
+];
+---
+
+<section data-system class="relative overflow-hidden bg-gold py-24 text-ink md:py-36">
+  <div class="mx-auto max-w-7xl px-6">
+    <p class="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/70">Un sistema completo</p>
+    <h2 class="font-display text-[17vw] font-bold leading-[0.88] tracking-[-0.04em] text-ink md:text-[12vw] xl:text-[10rem]">
+      {words.map((w, i) => (
+        <span data-slide={i % 2 === 0 ? -1 : 1} class:list={['block', i % 2 === 1 && 'text-right']}>
+          {w}
+        </span>
+      ))}
+    </h2>
+
+    <ul class="mt-20 grid gap-px overflow-hidden rounded-3xl bg-ink/15 sm:grid-cols-2 lg:grid-cols-4">
+      {facts.map((f) => (
+        <li data-fact class="bg-gold p-8">
+          <p class="font-display text-3xl font-bold tracking-tight">{f.big}</p>
+          <p class="mt-1 text-sm text-ink/75">{f.small}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -8,4 +8,14 @@ export const SITE = {
   phone: '+34644980352',
   phoneDisplay: '+34 644 98 03 52',
   whatsappUrl: 'https://wa.me/34644980352',
+  // Vídeo demo de la sección oscura. Mientras sea null se muestra un marcador.
+  // Ej.: { src: '/video/demo.mp4', poster: '/video/demo-poster.jpg' }
+  demoVideo: null as { src: string; poster?: string } | null,
 } as const;
+
+export const NAV = [
+  { label: 'Servicios', href: '/#servicios' },
+  { label: 'Demo', href: '/#demo' },
+  { label: 'Tarifas', href: '/#soluciones' },
+  { label: 'Contacto', href: '/#contacto' },
+] as const;

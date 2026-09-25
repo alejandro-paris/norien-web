@@ -1,0 +1,931 @@
+- generic [active] [ref=e1]:
+  - navigation "Global" [ref=e3]:
+    - list [ref=e5]:
+      - listitem [ref=e6]:
+        - link "Apple" [ref=e7] [cursor=pointer]:
+          - /url: /es/
+      - listitem [ref=e8]:
+        - generic [ref=e10]:
+          - list [ref=e12]:
+            - listitem [ref=e13]:
+              - link "Tienda" [ref=e14] [cursor=pointer]:
+                - /url: /es/shop/goto/store
+            - listitem:
+              - button "Menú de la tienda"
+          - list [ref=e17]:
+            - listitem [ref=e18]:
+              - link "Mac" [ref=e19] [cursor=pointer]:
+                - /url: /es/mac/
+            - listitem:
+              - button "Menú del Mac"
+          - list [ref=e22]:
+            - listitem [ref=e23]:
+              - link "iPad" [ref=e24] [cursor=pointer]:
+                - /url: /es/ipad/
+            - listitem:
+              - button "Menú del iPad"
+          - list [ref=e27]:
+            - listitem [ref=e28]:
+              - link "iPhone" [ref=e29] [cursor=pointer]:
+                - /url: /es/iphone/
+            - listitem:
+              - button "Menú del iPhone"
+          - list [ref=e32]:
+            - listitem [ref=e33]:
+              - link "Watch" [ref=e34] [cursor=pointer]:
+                - /url: /es/watch/
+            - listitem:
+              - button "Menú del Apple Watch"
+          - list [ref=e37]:
+            - listitem [ref=e38]:
+              - link "AirPods" [ref=e39] [cursor=pointer]:
+                - /url: /es/airpods/
+            - listitem:
+              - button "Menú de los AirPods"
+          - list [ref=e42]:
+            - listitem [ref=e43]:
+              - link "TV y Casa" [ref=e44] [cursor=pointer]:
+                - /url: /es/tv-home/
+            - listitem:
+              - button "Menú de TV y Casa"
+          - list [ref=e47]:
+            - listitem [ref=e48]:
+              - link "Entretenimiento" [ref=e49] [cursor=pointer]:
+                - /url: /es/entertainment/
+            - listitem:
+              - button "Menú de entretenimiento"
+          - list [ref=e52]:
+            - listitem [ref=e53]:
+              - link "Accesorios" [ref=e54] [cursor=pointer]:
+                - /url: /es/shop/goto/buy_accessories
+            - listitem:
+              - button "Menú de accesorios"
+          - list [ref=e57]:
+            - listitem [ref=e58]:
+              - link "Soporte" [ref=e59] [cursor=pointer]:
+                - /url: https://support.apple.com/es-es/?cid=gn-ols-home-hp-tab
+            - listitem:
+              - button "Menú de soporte"
+      - listitem [ref=e61]:
+        - button "Buscar en apple.com" [ref=e62] [cursor=pointer]
+      - listitem [ref=e63]:
+        - button "Bolsa" [ref=e65] [cursor=pointer]
+  - main [ref=e67]:
+    - paragraph [ref=e73]:
+      - text: Paga tu nuevo iPhone a tu ritmo y sin intereses con la financiación flexible.
+      - superscript [ref=e74]:
+        - link "Símbolo ◊ de nota a pie de página" [ref=e75] [cursor=pointer]:
+          - /url: "#footnote-diamond"
+          - text: ◊
+      - text: Y reduce las cuotas mensuales al entregar tu producto antiguo.
+      - link "Simbolo * della nota" [ref=e77] [cursor=pointer]:
+        - /url: "#footnote-1"
+        - text: "*"
+      - link "Comprar, iPhone" [ref=e78] [cursor=pointer]:
+        - /url: /es/shop/buy-iphone
+        - text: Comprar
+        - generic [ref=e79]: 
+    - generic [ref=e80]:
+      - heading "iPhone" [level=1] [ref=e84]
+      - navigation "Familia iPhone" [ref=e85]:
+        - generic [ref=e87]:
+          - generic:
+            - generic:
+              - list:
+                - listitem:
+                  - link "iPhone Duo Nuevo":
+                    - /url: /es/iphone-duo/
+                    - paragraph:
+                      - text: iPhone Duo
+                      - generic: Nuevo
+                - listitem:
+                  - link "iPhone 18 Pro Nuevo":
+                    - /url: /es/iphone-18-pro/
+                    - paragraph:
+                      - text: iPhone 18 Pro
+                      - generic: Nuevo
+                - listitem:
+                  - link "iPhone Air":
+                    - /url: /es/iphone-air/
+                    - paragraph: iPhone Air
+                - listitem:
+                  - link "iPhone 17":
+                    - /url: /es/iphone-17/
+                    - paragraph: iPhone 17
+                - listitem:
+                  - link "iPhone 17e":
+                    - /url: /es/iphone-17e/
+                    - paragraph: iPhone 17e
+                - listitem:
+                  - link "iPhone 16":
+                    - /url: /es/shop/goto/buy_iphone/iphone_16
+                    - paragraph: iPhone 16
+                - listitem:
+                  - link "Comparar":
+                    - /url: /es/iphone/compare/
+                    - paragraph: Comparar
+                - listitem:
+                  - link "Accesorios":
+                    - /url: /es/shop/goto/iphone/accessories
+                    - paragraph: Accesorios
+                - listitem:
+                  - link "Comprar un iPhone":
+                    - /url: /es/shop/goto/buy_iphone
+                    - paragraph: Comprar un iPhone
+                - listitem:
+                  - link "iOS 27":
+                    - /url: /es/os/ios/
+                    - paragraph: iOS 27
+              - button [aria-hidden]
+              - button "Siguiente elemento" [ref=e88] [cursor=pointer]
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - button "Reproducir la galería principal" [ref=e95] [cursor=pointer]
+        - tablist "Galería principal" [ref=e103]:
+          - link "iPhone Duo":
+            - /url: "#media-card-gallery-item-1"
+          - link "iPhone 18 Pro" [ref=e104] [cursor=pointer]:
+            - /url: "#media-card-gallery-item-2"
+      - list [ref=e108]:
+        - listitem [ref=e109]:
+          - generic [ref=e111]:
+            - generic [ref=e113]:
+              - link [aria-hidden] [ref=e114] [cursor=pointer]:
+                - /url: /es/iphone-duo/
+              - generic [ref=e115]:
+                - heading "iPhone Duo" [level=2] [ref=e116]
+                - paragraph [ref=e117]: Hola, hola.
+              - generic [ref=e118]:
+                - link "Más información, iPhone Duo" [ref=e119] [cursor=pointer]:
+                  - /url: /es/iphone-duo/
+                  - text: Más información
+                - link "Ver precios, iPhone Duo" [ref=e120] [cursor=pointer]:
+                  - /url: /es/shop/goto/buy_iphone/iphone_duo
+                  - text: Ver precios
+                  - generic [aria-hidden] [ref=e121]: 
+            - img "iPhone Duo, held by two hands in open landscape position, inside exterior, Star White color, iOS home screen display, photos on the left, apps on the right" [ref=e123]
+        - listitem [ref=e124]:
+          - generic [ref=e126]:
+            - generic [ref=e128]:
+              - link [aria-hidden] [ref=e129] [cursor=pointer]:
+                - /url: /es/iphone-18-pro/
+              - generic [ref=e130]:
+                - heading "iPhone 18 Pro" [level=2] [ref=e131]
+                - paragraph [ref=e132]: Mucho Pro.
+              - generic [ref=e133]:
+                - link "Más información, iPhone 18 Pro" [ref=e134] [cursor=pointer]:
+                  - /url: /es/iphone-18-pro/
+                  - text: Más información
+                - link "Comprar, iPhone 18 Pro" [ref=e135] [cursor=pointer]:
+                  - /url: /es/shop/goto/buy_iphone/iphone_18_pro
+                  - text: Comprar
+                  - generic [aria-hidden] [ref=e136]: 
+            - img "iPhone 18 Pro, partial side view, burgundy color, featuring a camera system with three lenses in the top left corner, flash and microphone, Apple logo in the middle, action and volume button featured slides over a giant text saying PRO" [ref=e138]
+    - text: 
+    - generic [ref=e139]:
+      - generic [ref=e141]:
+        - heading "Conoce a la familia." [level=2] [ref=e142]
+        - list [ref=e144]:
+          - listitem [ref=e145]:
+            - link "Comparar todos los modelos" [ref=e146] [cursor=pointer]:
+              - /url: /es/iphone/compare/
+              - text: Comparar todos los modelos
+              - generic [aria-hidden] [ref=e147]: 
+      - list [ref=e151]:
+        - listitem [ref=e152]:
+          - heading "Nuevo iPhone Duo" [level=3] [ref=e153]:
+            - generic [ref=e154]: Nuevo
+            - generic [ref=e155]:
+              - generic [ref=e156]: iPhone Duo
+              - generic [aria-hidden] [ref=e157]: iPhone Duo
+          - link [ref=e158] [cursor=pointer]:
+            - /url: /es/iphone-duo/
+            - img "iPhone Duo, Star White color, angled to the left, inner display with display screen showing an image of a dessert, iPhone Duo, Star White color, angled to the left, closed, back exterior, 48MP Dual Fusion rear cameras in top corner, two lenses, microphone, flash" [ref=e160]
+          - list "Colores disponibles" [ref=e162]:
+            - listitem [ref=e163]:
+              - generic [ref=e164]: Blanco estelar
+            - listitem [ref=e165]:
+              - generic [ref=e166]: Cielo nocturno
+          - paragraph [ref=e167]: La mayor pantalla en un iPhone. Plegable, adaptable y resistente.
+          - paragraph [ref=e168]
+          - generic [ref=e169]:
+            - link "Más información, iPhone Duo" [ref=e170] [cursor=pointer]:
+              - /url: /es/iphone-duo/
+              - text: Más información
+            - link "Ver precios, iPhone Duo" [ref=e171] [cursor=pointer]:
+              - /url: /es/shop/goto/buy_iphone/iphone_duo
+              - text: Ver precios
+              - generic [aria-hidden] [ref=e172]: 
+        - listitem [ref=e173]:
+          - heading "Nuevo iPhone 18 Pro" [level=3] [ref=e174]:
+            - generic [ref=e175]: Nuevo
+            - generic [ref=e176]:
+              - generic [ref=e177]: iPhone 18 Pro
+              - generic [aria-hidden] [ref=e178]: iPhone 18 Pro
+          - link [ref=e179] [cursor=pointer]:
+            - /url: /es/iphone-18-pro/
+            - img "iPhone 18 Pro, Burgundy color, side angle, partial front exterior, all-screen design display, action button, volume up/down buttons, iPhone 18 Pro, Burgundy color, side angle, complete back exterior, 48MP Pro Fusion camera system, Apple logo in center, side button, Camera Control button" [ref=e181]
+          - list "Acabados disponibles" [ref=e183]:
+            - listitem [ref=e184]:
+              - generic [ref=e185]: Burdeos
+            - listitem [ref=e186]:
+              - generic [ref=e187]: Azul glacial
+            - listitem [ref=e188]:
+              - generic [ref=e189]: Plata
+            - listitem [ref=e190]:
+              - generic [ref=e191]: Negro
+          - paragraph [ref=e192]: El iPhone con mejor rendimientoy cámara que existe, con una autonomía excepcional.
+          - paragraph [ref=e193]:
+            - button "Clase de eficiencia energética, iPhone 18 Pro, clase A, escala de la A a la G, más información" [ref=e196] [cursor=pointer]
+          - generic [ref=e197]:
+            - link "Más información, iPhone 18 Pro" [ref=e198] [cursor=pointer]:
+              - /url: /es/iphone-18-pro/
+              - text: Más información
+            - link "Comprar, iPhone 18 Pro" [ref=e199] [cursor=pointer]:
+              - /url: /es/shop/goto/buy_iphone/iphone_18_pro
+              - text: Comprar
+              - generic [aria-hidden] [ref=e200]: 
+        - listitem [ref=e201]:
+          - heading "iPhone Air" [level=3] [ref=e202]:
+            - generic [ref=e203]:
+              - generic [ref=e204]: iPhone Air
+              - generic [aria-hidden] [ref=e205]: iPhone Air
+          - link [ref=e206] [cursor=pointer]:
+            - /url: /es/iphone-air/
+            - img "iPhone Air en acabado azul cielo, parte delantera que muestra parcialmente la pantalla, parte lateral que muestra el botón Acción, los botones de volumen y el botón lateral. La parte trasera exterior muestra el sistema de cámara Fusion en la esquina superior izquierda." [ref=e208]
+          - list "Acabados disponibles" [ref=e210]:
+            - listitem [ref=e211]:
+              - generic [ref=e212]: Azul cielo
+            - listitem [ref=e213]:
+              - generic [ref=e214]: Dorado claro
+            - listitem [ref=e215]:
+              - generic [ref=e216]: Blanco nube
+            - listitem [ref=e217]:
+              - generic [ref=e218]: Negro espacial
+          - paragraph [ref=e219]: Muy fino y ligero.Un rendimiento pro.
+          - paragraph [ref=e220]:
+            - button "Clase de calificación energética, iPhone Air, clase A, escala de la A a la G, más información" [ref=e223] [cursor=pointer]
+          - generic [ref=e224]:
+            - link "Más información, iPhone Air" [ref=e225] [cursor=pointer]:
+              - /url: /es/iphone-air/
+              - text: Más información
+            - link "Comprar, iPhone Air" [ref=e226] [cursor=pointer]:
+              - /url: /es/shop/goto/buy_iphone/iphone_air
+              - text: Comprar
+              - generic [aria-hidden] [ref=e227]: 
+        - listitem [ref=e228]:
+          - heading "iPhone 17" [level=3] [ref=e229]:
+            - generic [ref=e230]:
+              - generic [ref=e231]: iPhone 17
+              - generic [aria-hidden] [ref=e232]: iPhone 17
+          - link [ref=e233] [cursor=pointer]:
+            - /url: /es/iphone-17/
+            - img "iPhone 17 en acabado lavanda, parte delantera que muestra parcialmente la pantalla, parte lateral que muestra el botón Acción, los botones de volumen y el botón lateral. La parte trasera exterior muestra el sistema de cámara dual Fusion en la esquina superior izquierda." [ref=e235]
+          - list "Acabados disponibles" [ref=e237]:
+            - listitem [ref=e238]:
+              - generic [ref=e239]: Lavanda
+            - listitem [ref=e240]:
+              - generic [ref=e241]: Verde salvia
+            - listitem [ref=e242]:
+              - generic [ref=e243]: Azul neblina
+            - listitem [ref=e244]:
+              - generic [ref=e245]: Blanco
+            - listitem [ref=e246]:
+              - generic [ref=e247]: Negro
+          - paragraph [ref=e248]: Potente y resistente. Irresistible.
+          - paragraph [ref=e249]:
+            - button "Clase de calificación energética, iPhone 17, clase A, escala de la A a la G, más información" [ref=e252] [cursor=pointer]
+          - generic [ref=e253]:
+            - link "Más información, iPhone 17" [ref=e254] [cursor=pointer]:
+              - /url: /es/iphone-17/
+              - text: Más información
+            - link "Comprar, iPhone 17" [ref=e255] [cursor=pointer]:
+              - /url: /es/shop/goto/buy_iphone/iphone_17
+              - text: Comprar
+              - generic [aria-hidden] [ref=e256]: 
+        - listitem [ref=e257]:
+          - heading "iPhone 17e" [level=3] [ref=e258]:
+            - generic [ref=e259]:
+              - generic [ref=e260]: iPhone 17e
+              - generic [aria-hidden] [ref=e261]: iPhone 17e
+          - link [ref=e262] [cursor=pointer]:
+            - /url: /es/iphone-17e/
+            - img "Parte delantera y trasera de un iPhone 17e en rosa palo, parte delantera parcial de la pantalla, parte trasera completa con el logo de Apple y una cámara, parte lateral con el botón Acción, los botones de volumen y el botón lateral." [ref=e264]
+          - list "Acabados disponibles" [ref=e266]:
+            - listitem [ref=e267]:
+              - generic [ref=e268]: Rosa palo
+            - listitem [ref=e269]:
+              - generic [ref=e270]: Blanco
+            - listitem [ref=e271]:
+              - generic [ref=e272]: Negro
+          - paragraph [ref=e273]: Muy equipado. Muy acertado.
+          - paragraph [ref=e274]:
+            - button "Clase de eficiencia energética, iPhone 17e, clase A, escala de la A a la G, más información" [ref=e277] [cursor=pointer]
+          - generic [ref=e278]:
+            - link "Más información, iPhone 17e" [ref=e279] [cursor=pointer]:
+              - /url: /es/iphone-17e/
+              - text: Más información
+            - link "Comprar, iPhone 17e" [ref=e280] [cursor=pointer]:
+              - /url: /es/shop/goto/buy_iphone/iphone_17e
+              - text: Comprar
+              - generic [aria-hidden] [ref=e281]: 
+        - listitem [ref=e282]:
+          - heading "iPhone 16" [level=3] [ref=e283]:
+            - generic [ref=e284]:
+              - generic [ref=e285]: iPhone 16
+              - generic [aria-hidden] [ref=e286]: iPhone 16
+          - link [ref=e287] [cursor=pointer]:
+            - /url: /es/iphone-16/specs/
+            - img "iPhone 16 en acabado azul ultramar, parte delantera que muestra parcialmente la pantalla, parte lateral que muestra el botón Acción, los botones de volumen y el botón lateral. Parte trasera que muestra el sistema avanzado de cámara dual en la esquina superior izquierda." [ref=e289]
+          - list "Acabados disponibles" [ref=e291]:
+            - listitem [ref=e292]:
+              - generic [ref=e293]: Azul ultramar
+            - listitem [ref=e294]:
+              - generic [ref=e295]: Verde azulado
+            - listitem [ref=e296]:
+              - generic [ref=e297]: Rosa
+            - listitem [ref=e298]:
+              - generic [ref=e299]: Blanco
+            - listitem [ref=e300]:
+              - generic [ref=e301]: Negro
+          - paragraph [ref=e302]: Rendimiento increíble. Diseño duradero.
+          - paragraph [ref=e303]:
+            - button "Clase de calificación energética, iPhone 16, clase B, escala de la A a la G, más información" [ref=e306] [cursor=pointer]
+          - generic [ref=e307]:
+            - link "Más información, iPhone 16" [ref=e308] [cursor=pointer]:
+              - /url: /es/iphone-16/specs/
+              - text: Más información
+            - link "Comprar, iPhone 16" [ref=e309] [cursor=pointer]:
+              - /url: /es/shop/goto/buy_iphone/iphone_16
+              - text: Comprar
+              - generic [aria-hidden] [ref=e310]: 
+    - generic [ref=e311]:
+      - generic [ref=e313]:
+        - heading "Por qué es mejor comprar tu iPhone en Apple." [level=2] [ref=e314]
+        - list [ref=e316]:
+          - listitem [ref=e317]:
+            - link "Comprar un iPhone" [ref=e318] [cursor=pointer]:
+              - /url: /es/shop/goto/buy_iphone
+              - text: Comprar un iPhone
+              - generic [aria-hidden] [ref=e319]: 
+      - list "Por qué es mejor comprar tu iPhone en Apple." [ref=e323]:
+        - listitem [ref=e324]:
+          - generic [ref=e325]:
+            - generic:
+              - generic:
+                - heading "Paga a tu ritmo" [level=3]
+                - generic:
+                  - paragraph: Descubre la nueva financiación flexible.
+                  - paragraph:
+                    - text: Paga tus próximos productos Apple poco a poco.
+                    - superscript:
+                      - link "Símbolo ◊ de nota a pie de página" [ref=e326] [cursor=pointer]:
+                        - /url: "#footnote-diamond"
+                        - text: ◊
+              - figure:
+                - generic:
+                  - img "Varios dispositivos Apple, como el MacBook Air, iPhone Duo, iPhone 17e, iPhone 18 Pro, iPhone 17, iPad Air o Apple Watch Series 12."
+            - link "Más información sobre la cuenta de financiación flexible" [ref=e327] [cursor=pointer]:
+              - /url: /es/shop/browse/financing/
+        - listitem [ref=e332]:
+          - generic [ref=e333]:
+            - generic:
+              - generic:
+                - heading "Apple Trade In" [level=3]
+                - generic:
+                  - paragraph: Consigue un descuento para tu nuevo iPhone al entregar el anterior.
+                  - paragraph:
+                    - generic:
+                      - text: Llévate un descuento en la compra de tu próximo iPhone al entregar un dispositivo válido.
+                      - link "Símbolo * de nota a pie de página" [ref=e334] [cursor=pointer]:
+                        - /url: "#footnote-1"
+                        - text: "*"
+              - figure:
+                - generic:
+                  - img "Dos manos intercambian un iPhone 13 con una funda de silicona y pegatinas en la parte trasera por un nuevo iPhone 18 Pro en su caja."
+            - link "Más información sobre Apple Trade In" [ref=e335] [cursor=pointer]:
+              - /url: /es/shop/goto/trade_in
+        - listitem [ref=e340]:
+          - generic [ref=e341]:
+            - generic:
+              - generic:
+                - heading "Servicios de entrega y recogida" [level=3]
+                - generic:
+                  - paragraph: Opciones flexibles de entrega y recogida.
+                  - paragraph: Recíbelo en dos horas desde un Apple Store, aprovecha el envío gratuito o pásate a recogerlo.
+              - figure:
+                - generic:
+                  - img "Bolsa blanca de Apple con el logo de la marca en la parte superior"
+            - link "Más información sobre la entrega" [ref=e342] [cursor=pointer]:
+              - /url: /es/shop/goto/shipping_and_returns
+        - listitem [ref=e347]:
+          - generic [ref=e348]:
+            - generic:
+              - generic:
+                - heading "Configuración Personalizada" [level=3]
+                - generic:
+                  - paragraph: Configuración Personalizada. Di hola a tu nuevo iPhone.
+                  - paragraph: Apúntate a sesiones online con nuestro equipo de Especialistas para poner a punto tu iPhone y descubrir las novedades.
+              - figure:
+                - generic:
+                  - img "Dispositivos y prestaciones de Apple, iCloud, iPhone con Face ID y cable de carga, Cámara, Mensajes."
+            - link "Más información sobre las sesiones online personalizadas" [ref=e349] [cursor=pointer]:
+              - /url: /es/shop/personal-session
+        - listitem [ref=e354]:
+          - generic [ref=e355]:
+            - generic:
+              - generic:
+                - heading "App Apple Store" [level=3]
+                - generic:
+                  - paragraph: Descubre una experiencia de compra hecha para ti.
+                  - paragraph: Pásate por la app Apple Store.
+              - figure:
+                - generic:
+                  - img "App Apple Store, icono de bolsa de compra, azul"
+            - link "Descargar la app Apple Store" [ref=e356] [cursor=pointer]:
+              - /url: https://apps.apple.com/es/app/apple-store/id375380948?mt=8
+    - text: 
+    - generic [ref=e361]:
+      - heading "Descubre el iPhone." [level=2] [ref=e364]
+      - list "Descubre el iPhone." [ref=e368]:
+        - listitem [ref=e369]:
+          - generic [ref=e370]:
+            - generic:
+              - generic:
+                - heading "Diseño" [level=3]
+                - generic:
+                  - paragraph: Belleza y resistencia. Diferente por definición.
+              - figure:
+                - generic:
+                  - img "iPhone Duo, Star White color, complete back exterior, Apple logo in center, 48MP Dual Fusion camera system, partial front interior, photo library displayed on screen"
+            - button "Más información sobre el diseño" [ref=e371] [cursor=pointer]
+        - listitem [ref=e376]:
+          - generic [ref=e377]:
+            - generic:
+              - generic:
+                - heading "Cámaras avanzadas" [level=3]
+                - generic:
+                  - paragraph: Más que una imagen. Una visión.
+              - figure:
+                - generic:
+                  - img "Close-up image of iPhone 18 Pro camera lens, Burgundy color"
+            - button "Más información sobre las cámaras avanzadas" [ref=e378] [cursor=pointer]
+        - listitem [ref=e383]:
+          - generic [ref=e384]:
+            - generic:
+              - generic:
+                - heading "Chip y autonomía" [level=3]
+                - generic:
+                  - paragraph: Velocidad sin caducidad.
+              - figure:
+                - generic:
+                  - img "Chip A20 Pro de Apple"
+            - button "Más información sobre el chip y la autonomía" [ref=e385] [cursor=pointer]
+        - listitem [ref=e390]:
+          - generic [ref=e391]:
+            - generic:
+              - generic:
+                - heading "iOS y Apple Intelligence" [level=3]
+                - generic:
+                  - paragraph: Una ayuda donde mejor te viene.
+              - figure:
+                - generic:
+                  - img "iPhone 18 Pro, Burgundy color, partial front exterior, display screen shows conversation with Siri AI using Apple Intelligence, calendar app displayed below an iMessage about a deck treatment"
+            - button "Más información sobre iOS y Apple Intelligence" [ref=e392] [cursor=pointer]
+        - listitem [ref=e397]:
+          - generic [ref=e398]:
+            - generic:
+              - generic:
+                - heading "Medio ambiente" [level=3]
+                - generic:
+                  - paragraph: Diseñamos con el planeta en mente.
+              - figure:
+                - generic:
+                  - img "iPhone Air en acabado azul cielo, parte trasera exterior que muestra el sistema de cámara Fusion, el objetivo dos en uno, el sensor LiDAR, el flash y el micrófono"
+            - button "Más información sobre el medio ambiente" [ref=e399] [cursor=pointer]
+        - listitem [ref=e404]:
+          - generic [ref=e405]:
+            - generic:
+              - generic:
+                - heading "Privacidad" [level=3]
+                - generic:
+                  - paragraph: Tus datos. Solo donde tú quieres.
+              - figure:
+                - generic:
+                  - img "Logo de Apple en color plata que en vez de una hoja tiene el arco de un candado"
+            - button "Más información sobre la privacidad" [ref=e406] [cursor=pointer]
+        - listitem [ref=e411]:
+          - generic [ref=e412]:
+            - generic:
+              - generic:
+                - heading "Tranquilidad" [level=3]
+                - generic:
+                  - paragraph: Prestaciones que te ayudan. Con y sin conexión.
+              - figure:
+                - generic:
+                  - img "Overhead zoomed-out photo of Earth from space with satellite icon"
+            - button "Más información sobre la tranquilidad" [ref=e413] [cursor=pointer]
+    - generic [ref=e419]:
+      - heading "Más cosas que te encantarán." [level=2] [ref=e421]
+      - generic [ref=e423]:
+        - link [aria-hidden] [ref=e424] [cursor=pointer]:
+          - /url: /es/iphone/more/
+        - generic:
+          - generic:
+            - heading "Qué hace único al iPhone." [level=2]
+            - link "Más información sobre lo mucho que te ofrece el iPhone" [ref=e425] [cursor=pointer]:
+              - /url: /es/iphone/more/
+              - text: Más información
+          - generic:
+            - generic:
+              - img "Un iPhone con varias prestaciones integradas de Apple a su alrededor"
+    - generic [ref=e426]:
+      - generic [ref=e428]:
+        - heading "Los imprescindibles del iPhone." [level=2] [ref=e429]
+        - list [ref=e431]:
+          - listitem [ref=e432]:
+            - link "Todos los accesorios para el iPhone" [ref=e433] [cursor=pointer]:
+              - /url: /es/shop/goto/iphone/accessories
+              - text: Todos los accesorios para el iPhone
+              - generic [aria-hidden] [ref=e434]: 
+      - list [ref=e438]:
+        - listitem [ref=e439]:
+          - generic [ref=e440]:
+            - link [aria-hidden] [ref=e441] [cursor=pointer]:
+              - /url: /es/shop/goto/iphone/accessories
+            - generic:
+              - generic:
+                - heading "Accesorios para el iPhone" [level=3]
+                - generic:
+                  - paragraph: "Personaliza y protege tu iPhone con accesorios para todos los gustos: la funda MagSafe, la funda Folio con soporte para el iPhone Duo, el cargador MagSafe y mucho más."
+                - link "Ver accesorios para el iPhone" [ref=e442] [cursor=pointer]:
+                  - /url: /es/shop/goto/iphone/accessories
+                  - text: Ver accesorios para el iPhone
+                  - generic [aria-hidden] [ref=e443]: 
+              - generic:
+                - generic:
+                  - 'img "iPhone 18 Pro Max, iPhone 18 Pro, iPhone Duo side by side: iPhone 18 Pro Max, back exterior, Glacier color, MagSafe charger attached, iPhone 18 Pro, back exterior, Burgundy color, TechWoven Case with MagSafe with Burgundy FineWoven Wallet with MagSafe attached, iPhone Duo back exterior, open in landscape position, Star White color, Folio with Kickstand, Taupe color"'
+        - listitem [ref=e444]:
+          - generic [ref=e445]:
+            - link [aria-hidden] [ref=e446] [cursor=pointer]:
+              - /url: /es/shop/goto/buy_airtag/airtag
+            - generic:
+              - generic:
+                - heading "AirTag" [level=3]
+                - generic:
+                  - paragraph:
+                    - text: Con un altavoz un 50 % más potente y hasta 1,5 veces más alcance en Búsqueda de Precisión,
+                    - superscript [ref=e447]:
+                      - link "Nota a pie de página 11" [ref=e448] [cursor=pointer]:
+                        - /url: "#footnote-12"
+                        - text: "11"
+                    - text: ahora es aún más fácil encontrar lo que más te importa.
+                - link "Comprar, AirTag" [ref=e449] [cursor=pointer]:
+                  - /url: /es/shop/goto/buy_airtag/airtag
+                  - text: Comprar
+                  - generic [aria-hidden] [ref=e450]: 
+              - generic:
+                - generic:
+                  - 'img "AirTag and AirTag FineWoven Key Ring: an array of colors including Glacier, Burgundy, and Green, key ring accessories display Apple logo on front or custom engravings on back"'
+    - generic [ref=e452]:
+      - heading "Don de gentes." [level=2] [ref=e454]
+      - list [ref=e457]:
+        - listitem [ref=e458]:
+          - heading [level=3] [ref=e459]:
+            - button "iPhone y Mac" [ref=e460] [cursor=pointer]
+          - generic "iPhone y Mac" [ref=e462]:
+            - generic [ref=e463]:
+              - paragraph [ref=e465]: Copia imágenes, vídeos o texto de tu iPhone y pégalos en cualquier app del Mac, contesta llamadas o mensajes desde el ordenador o accede con iCloud a tus archivos favoritos desde cualquiera de los dos dispositivos. Cómodo es poco.
+              - generic:
+                - generic:
+                  - img "iPhone and MacBook models shown side by side showcasing mirror effect on MacBook, display shows generic wallpaper"
+        - listitem [ref=e466]:
+          - heading [level=3] [ref=e467]:
+            - button "iPhone y Apple Watch" [ref=e468] [cursor=pointer]
+          - generic "iPhone y Apple Watch" [ref=e470]:
+            - generic [ref=e471]:
+              - paragraph [ref=e473]:
+                - text: "Ya estamos otra vez: no sabes dónde has dejado el iPhone. Tranqui, los últimos modelos de Apple Watch pueden mostrarte su ubicación y distancia aproximadas."
+                - superscript [ref=e474]:
+                  - link "Nota a pie de página 12" [ref=e475] [cursor=pointer]:
+                    - /url: "#footnote-13"
+                    - text: "12"
+                - text: También puedes ver el encuadre de una foto desde la pantalla del reloj para no salir sin cabeza en las fotos de grupo. Y cuando respondas a una llamada en tu Apple Watch, podrás pasarte luego al iPhone y seguir hablando como si nada.
+              - generic:
+                - generic:
+                  - img "iPhone 18 Pro, front exterior, camera in use to capture two men with a blue sky in the background, next to Apple Watch Ultra 3 with Camera Remote app open"
+        - listitem [ref=e476]:
+          - heading [level=3] [ref=e477]:
+            - button "iPhone y AirPods" [ref=e478] [cursor=pointer]
+          - generic "iPhone y AirPods" [ref=e480]:
+            - generic [ref=e481]:
+              - paragraph [ref=e483]: Configura los AirPods en el iPhone con un simple toque y empieza a alucinar con el audio adaptativo. El control de ruido se ajusta automáticamente en función del entorno y tus interacciones a lo largo del día.
+              - generic:
+                - generic:
+                  - img "iPhone 18 Pro, front exterior, Apple Music homescreen displayed on screen, next to Airpods Pro 3 in open MagSafe Charging Case"
+    - generic [ref=e486]:
+      - heading "iPhone" [level=2] [ref=e487]
+      - navigation "iPhone"
+    - text:     
+  - contentinfo [ref=e488]:
+    - generic [ref=e489]:
+      - heading "Pie de página de Apple" [level=2] [ref=e490]
+      - region "Notas a pie de página" [ref=e491]:
+        - list [ref=e492]:
+          - listitem [ref=e493]:
+            - text: "◊ Financiación flexible Condiciones de la financiación flexible: La financiación para particulares de la tienda online de Apple es un servicio organizado y gestionado por Apple Distribution International Limited, Hollyhill Industrial Estate, Cork, Irlanda, que actúa como intermediario de crédito (no exclusivamente) y no como entidad crediticia. Apple ofrece financiación por parte de un número limitado de proveedores, entre ellos Banco Cetelem S.A.U., Paseo de los Melancólicos, 14A, 28005-MADRID (que opera bajo el nombre Cetelem). Oferta sujeta a solicitud, estado y requisitos."
+            - link "Consulta las condiciones" [ref=e494] [cursor=pointer]:
+              - /url: /es/shop/browse/financing/terms
+            - text: . Si se aprueba tu solicitud, se te puede ofrecer un préstamo con pago a plazos o una línea de crédito en función de los productos que hayas seleccionado. La línea de crédito es flexible, de modo que, una vez abierta, se puede reutilizar para hacer más compras a Apple y elegir la duración de las cuotas en función de la disponibilidad y la solicitud. Más información en
+            - link "apple.com/es/shop/browse/financing/terms" [ref=e495] [cursor=pointer]:
+              - /url: /es/shop/browse/financing/terms
+            - text: . Los productos y las ofertas de financiación disponibles en la tienda pueden variar. Las ofertas disponibles con financiación flexible están sujetas a cambios. Las ofertas que se muestran actualmente solo están disponibles para clientes que realizan una compra válida en el Apple Store para particulares. Se aplica un límite mínimo de transacción de 150 € y un límite máximo de 4.000 €. Renovación de tu dispositivo con la financiación flexible Tu valor de renovación se puede aplicar a la compra de un nuevo dispositivo válido o a la liquidación del plan que tengas asociado. El valor real reconocido se basa en la recepción de un dispositivo válido que coincida con la descripción proporcionada durante la estimación. Si no envías tu dispositivo de renovación en un plazo de 14 días o decides aceptar una estimación modificada del valor de renovación, Cetelem añadirá un saldo extra a tu línea de crédito de la financiación flexible u otro préstamo con pago a plazos (dependiendo de tu plan de financiación flexible actual) que ajustará las cuotas mensuales teniendo en cuenta el coste íntegro sin el valor de renovación o bien el valor de renovación modificado. Si prefieres utilizar el valor de renovación para liquidar tu plan de financiación, se aplicará a tu plan actual de cuotas mensuales, y cualquier cantidad sobrante se descontará de tu nuevo dispositivo. Si el valor de renovación estimado o un valor de renovación revisado es inferior a tu saldo restante, tendrás que pagar las cuotas mensuales que queden del plan de financiación actual.
+          - listitem [ref=e496]:
+            - text: "* Los valores de renovación dependen del estado, el año y la configuración de tu dispositivo de renovación válido y el país/región en el que se vendió originalmente. Para poder cambiar tu dispositivo por un descuento o una Apple Gift Card, tienes que ser mayor de edad. No todos los dispositivos pueden acogerse a esta oferta. La entrega de ordenadores de mesa solo puede tramitarse por internet en estos momentos. Para obtener más información sobre los dispositivos válidos y su reciclaje, consulta a nuestro"
+            - link "socio" [ref=e497] [cursor=pointer]:
+              - /url: https://es-appletradein.likewize.com/
+            - text: . Puede haber restricciones y limitaciones. El pago dependerá de que el estado del dispositivo coincida con el indicado durante la tasación. Apple se reserva el derecho a rechazar o limitar la cantidad de dispositivos según su criterio. El valor de tu dispositivo se descontará del precio del producto Apple nuevo. Esta oferta puede no estar disponible en todas las tiendas. Algunas tiendas pueden exigir más requisitos.
+        - list [ref=e498]:
+          - listitem [ref=e499]: En comparación con la generación anterior de iPhone.
+          - listitem [ref=e500]: El iPhone Duo, iPhone 18 Pro, iPhone 17e, iPhone 17 y iPhone Air son resistentes a las salpicaduras, el agua y el polvo. Las pruebas se han realizado bajo control en un laboratorio y todos los modelos han obtenido la calificación IP68 según la norma IEC 60529 (hasta 6 metros de profundidad durante un máximo de 30 minutos). La resistencia a las salpicaduras, el agua y el polvo no es permanente y puede disminuir como consecuencia del uso habitual. No intentes cargar el iPhone si está mojado. Consulta el manual de uso antes de limpiarlo o secarlo. La garantía no cubre los daños producidos por líquidos.
+          - listitem [ref=e501]:
+            - text: Apple Intelligence está disponible con el idioma de Siri y el dispositivo configurados en alemán, chino (simplificado o tradicional), coreano, danés, español, francés, inglés, italiano, japonés, neerlandés, noruego, portugués, sueco, turco o vietnamita. Algunas prestaciones no están disponibles en todas las regiones o idiomas. Algunos dispositivos no están disponibles en todas las regiones. Por ahora, Siri AI no estará disponible en iOS 27 en la UE. Algunas prestaciones de Apple Intelligence que utilizan modelos basados en servidores están sujetas a límites de uso diario, incluyendo, entre otras, las herramientas inteligentes de edición de fotos, Image Playground y los modelos de AFM 3 Cloud en Atajos. Los límites diarios pueden variar según la prestación, la complejidad de la solicitud, la demanda del sistema, las políticas del sistema y otros factores. En el futuro, el acceso ampliado a estas prestaciones estará sujeto a un cargo. El uso de estas prestaciones está sujeto a los términos y condiciones de Apple Intelligence. Más información en
+            - link "apple.com/es/apple-intelligence" [ref=e502] [cursor=pointer]:
+              - /url: /es/apple-intelligence/
+            - text: .
+          - listitem [ref=e503]:
+            - text: La herramienta Limpiar está disponible en versión beta. Consulta los dispositivos compatibles y los requisitos del sistema en
+            - link "support.apple.com/es-es/121429" [ref=e504] [cursor=pointer]:
+              - /url: https://support.apple.com/es-es/121429?cid=general-iphone-marcom-08062025
+            - text: .
+          - listitem [ref=e505]: El modo Acción está disponible en el iPhone 14 y modelos posteriores, excepto el iPhone SE, el iPhone 16e y el iPhone 17e. La prestación Mezcla de Audio está disponible en el iPhone 16 y modelos posteriores. El Control de Cámara está disponible en el iPhone 16 y modelos posteriores, excepto el iPhone 16e y el iPhone 17e. La cámara frontal Center Stage está disponible en el iPhone Duo, iPhone 18 Pro, iPhone 18 Pro Max, iPhone 17, iPhone 17 Pro, iPhone 17 Pro Max y iPhone Air.
+          - listitem [ref=e506]:
+            - text: Apple exige que sus proveedores obtengan todos los materiales de manera responsable. Más información en
+            - link "apple.com/es/supply-chain" [ref=e507] [cursor=pointer]:
+              - /url: /es/supply-chain/
+            - text: .
+          - listitem [ref=e508]:
+            - text: Servicio gratuito durante dos años con la activación de cualquier modelo de iPhone 14 o posterior. La velocidad de conexión y de respuesta depende de la ubicación, las condiciones del lugar y otros factores. Más información en
+            - link "support.apple.com/es-es/HT213885" [ref=e509] [cursor=pointer]:
+              - /url: https://support.apple.com/es-es/HT213885?cid=general-iphone-marcom-08062025
+            - text: .
+          - listitem [ref=e510]: "Pruebas realizadas por Apple en agosto de 2026 con prototipos del iPhone 18 Pro y iPhone 18 Pro Max y versiones preliminares de software usando redes LTE y 5G con un perfil de uso representativo. El perfil se basa en los valores de uso medios entre los usuarios del iPhone y refleja una combinación del uso pasivo y activo de una gran variedad de apps, entre ellas: mensajes, fotos, música, redes sociales, streaming de vídeo, juegos, navegación por internet y mapas. La autonomía depende del uso, la configuración, la red móvil, la intensidad de la señal y otros factores. Los resultados reales pueden variar."
+          - listitem [ref=e511]:
+            - text: Se requiere un plan de datos. Las redes 5G solo están disponibles en algunos países y con determinados operadores. La velocidad puede variar según las condiciones del lugar y el operador. Para obtener más información sobre la compatibilidad con redes 5G, ponte en contacto con tu operador y consulta la página
+            - link "apple.com/es/iphone/cellular" [ref=e512] [cursor=pointer]:
+              - /url: /es/iphone/cellular/
+            - text: .
+          - listitem [ref=e513]: Los accesorios se venden por separado (la batería MagSafe está sujeta a disponibilidad).
+          - listitem [ref=e514]: Búsqueda de Precisión ampliada y altavoz más potente respecto a la generación anterior de AirTag. La app Buscar requiere iOS 14, iPadOS o macOS Catalina o posterior y que el dispositivo esté conectado a iCloud con tu Cuenta de Apple. Algunas prestaciones no están disponibles en todos los países o regiones. La prestación Búsqueda de Precisión mejorada es compatible con el AirTag (2.ª generación) enlazado a un iPhone Duo, iPhone Air o iPhone 15 o posterior, salvo el iPhone 16e y el iPhone 17e. Su disponibilidad varía en función de la región. La prestación Búsqueda de Precisión en el Apple Watch requiere un Apple Watch Series 9 o posterior, o un Apple Ultra 2 o posterior, con watchOS 26.2.1.
+          - listitem [ref=e515]: Requiere un iPhone y un Apple Watch con chip de banda ultraancha de segunda generación. La disponibilidad de la banda ultraancha varía en función de la región.
+        - list [ref=e516]:
+          - listitem [ref=e517]:
+            - text: Para pagar con Apple Pay necesitas una tarjeta de una entidad emisora participante. Para saber si tu tarjeta es compatible con Apple Pay, ponte en contacto con la entidad emisora.Apple Pay no está disponible en todos los países o zonas geográficas. Consulta la lista completa
+            - link "aquí" [ref=e518] [cursor=pointer]:
+              - /url: https://support.apple.com/es-es/102775?cid=general-iphone-marcom-08062025
+            - text: .Las prestaciones están sujetas a cambios. Algunas prestaciones, aplicaciones y servicios no están disponibles en todas las regiones o idiomas, y pueden requerir hardware y software específicos. Más información en
+            - link "Disponibilidad de las prestaciones" [ref=e519] [cursor=pointer]:
+              - /url: /es/ios/feature-availability/#apple-wallet-apple-pay
+            - text: .
+          - listitem [ref=e520]: Monster Hunter Outlanders estará disponible más adelante este año. La fecha de lanzamiento está sujeta a cambios. © 2026 Tencent. © CAPCOM.
+      - navigation "Pasos de navegación" [ref=e521]:
+        - link "Apple" [ref=e522] [cursor=pointer]:
+          - /url: /es/
+          - generic [aria-hidden] [ref=e523]: 
+        - generic [ref=e525]:
+          - list:
+            - listitem [ref=e526]: iPhone
+      - navigation "Directorio de Apple" [ref=e527]:
+        - generic [ref=e528]:
+          - generic:
+            - heading "Ver y comprar" [level=3] [ref=e529]
+            - list [ref=e531]:
+              - listitem [ref=e532]:
+                - link "Tienda" [ref=e533] [cursor=pointer]:
+                  - /url: /es/shop/goto/store
+              - listitem [ref=e534]:
+                - link "Mac" [ref=e535] [cursor=pointer]:
+                  - /url: /es/mac/
+              - listitem [ref=e536]:
+                - link "iPad" [ref=e537] [cursor=pointer]:
+                  - /url: /es/ipad/
+              - listitem [ref=e538]:
+                - link "iPhone" [ref=e539] [cursor=pointer]:
+                  - /url: /es/iphone/
+              - listitem [ref=e540]:
+                - link "Watch" [ref=e541] [cursor=pointer]:
+                  - /url: /es/watch/
+              - listitem [ref=e542]:
+                - link "AirPods" [ref=e543] [cursor=pointer]:
+                  - /url: /es/airpods/
+              - listitem [ref=e544]:
+                - link "TV y Casa" [ref=e545] [cursor=pointer]:
+                  - /url: /es/tv-home/
+              - listitem [ref=e546]:
+                - link "AirTag" [ref=e547] [cursor=pointer]:
+                  - /url: /es/airtag/
+              - listitem [ref=e548]:
+                - link "Accesorios" [ref=e549] [cursor=pointer]:
+                  - /url: /es/shop/goto/buy_accessories
+              - listitem [ref=e550]:
+                - link "Tarjetas regalo" [ref=e551] [cursor=pointer]:
+                  - /url: /es/shop/goto/giftcards
+          - generic:
+            - heading "Cartera de Apple" [level=3] [ref=e552]
+            - list [ref=e554]:
+              - listitem [ref=e555]:
+                - link "Apple Pay" [ref=e556] [cursor=pointer]:
+                  - /url: /es/apple-pay/
+        - generic [ref=e557]:
+          - generic:
+            - heading "Cuentas" [level=3] [ref=e558]
+            - list [ref=e560]:
+              - listitem [ref=e561]:
+                - link "Gestiona tu cuenta de Apple" [ref=e562] [cursor=pointer]:
+                  - /url: https://account.apple.com/es/
+              - listitem [ref=e563]:
+                - link "Cuenta del Apple Store" [ref=e564] [cursor=pointer]:
+                  - /url: /es/shop/goto/account
+              - listitem [ref=e565]:
+                - link "iCloud.com" [ref=e566] [cursor=pointer]:
+                  - /url: https://www.icloud.com
+          - generic:
+            - heading "Entretenimiento" [level=3] [ref=e567]
+            - list [ref=e569]:
+              - listitem [ref=e570]:
+                - link "Apple One" [ref=e571] [cursor=pointer]:
+                  - /url: /es/apple-one/
+              - listitem [ref=e572]:
+                - link "Apple TV" [ref=e573] [cursor=pointer]:
+                  - /url: /es/apple-tv/
+              - listitem [ref=e574]:
+                - link "Apple Music" [ref=e575] [cursor=pointer]:
+                  - /url: /es/apple-music/
+              - listitem [ref=e576]:
+                - link "Apple Arcade" [ref=e577] [cursor=pointer]:
+                  - /url: /es/apple-arcade/
+              - listitem [ref=e578]:
+                - link "Apple Fitness+" [ref=e579] [cursor=pointer]:
+                  - /url: /es/apple-fitness-plus/
+              - listitem [ref=e580]:
+                - link "Apple Podcasts" [ref=e581] [cursor=pointer]:
+                  - /url: /es/apple-podcasts/
+              - listitem [ref=e582]:
+                - link "Apple Books" [ref=e583] [cursor=pointer]:
+                  - /url: /es/apple-books/
+              - listitem [ref=e584]:
+                - link "App Store" [ref=e585] [cursor=pointer]:
+                  - /url: /es/app-store/
+        - generic [ref=e586]:
+          - generic:
+            - heading "Apple Store" [level=3] [ref=e587]
+            - list [ref=e589]:
+              - listitem [ref=e590]:
+                - link "Encontrar una tienda" [ref=e591] [cursor=pointer]:
+                  - /url: /es/retail/
+              - listitem [ref=e592]:
+                - link "Genius Bar" [ref=e593] [cursor=pointer]:
+                  - /url: /es/retail/geniusbar/
+              - listitem [ref=e594]:
+                - link "Today at Apple" [ref=e595] [cursor=pointer]:
+                  - /url: /es/today/
+              - listitem [ref=e596]:
+                - link "Reservas para grupos" [ref=e597] [cursor=pointer]:
+                  - /url: /es/today/groups/
+              - listitem [ref=e598]:
+                - link "Campamento de Apple" [ref=e599] [cursor=pointer]:
+                  - /url: /es/today/camp/
+              - listitem [ref=e600]:
+                - link "App Apple Store" [ref=e601] [cursor=pointer]:
+                  - /url: https://apps.apple.com/es/app/apple-store/id375380948
+              - listitem [ref=e602]:
+                - link "Reacondicionados certificados" [ref=e603] [cursor=pointer]:
+                  - /url: /es/shop/goto/special_deals
+              - listitem [ref=e604]:
+                - link "Apple Trade In" [ref=e605] [cursor=pointer]:
+                  - /url: /es/shop/goto/trade_in
+              - listitem [ref=e606]:
+                - link "Financiación" [ref=e607] [cursor=pointer]:
+                  - /url: /es/shop/goto/ww/financing
+              - listitem [ref=e608]:
+                - link "Estado del pedido" [ref=e609] [cursor=pointer]:
+                  - /url: /es/shop/goto/order/list
+              - listitem [ref=e610]:
+                - link "Ayuda para comprar" [ref=e611] [cursor=pointer]:
+                  - /url: /es/shop/goto/help
+        - generic [ref=e612]:
+          - generic:
+            - heading "Empresas" [level=3] [ref=e613]
+            - list [ref=e615]:
+              - listitem [ref=e616]:
+                - link "Apple y las empresas" [ref=e617] [cursor=pointer]:
+                  - /url: /es/business/
+              - listitem [ref=e618]:
+                - link "Compras de empresa" [ref=e619] [cursor=pointer]:
+                  - /url: /es/retail/business/
+          - generic:
+            - heading "Educación" [level=3] [ref=e620]
+            - list [ref=e622]:
+              - listitem [ref=e623]:
+                - link "Apple en la educación" [ref=e624] [cursor=pointer]:
+                  - /url: /es/education/
+              - listitem [ref=e625]:
+                - link "Compras para la universidad" [ref=e626] [cursor=pointer]:
+                  - /url: /es/shop/goto/educationrouting
+          - generic:
+            - heading "Salud" [level=3] [ref=e627]
+            - list [ref=e629]:
+              - listitem [ref=e630]:
+                - link "Apple y el sector sanitario" [ref=e631] [cursor=pointer]:
+                  - /url: /es/healthcare/
+          - generic:
+            - heading "Para el sector público" [level=3] [ref=e632]
+            - list [ref=e634]:
+              - listitem [ref=e635]:
+                - link "Apple y el sector público" [ref=e636] [cursor=pointer]:
+                  - /url: /es/government/
+        - generic [ref=e637]:
+          - generic:
+            - heading "Valores de Apple" [level=3] [ref=e638]
+            - list [ref=e640]:
+              - listitem [ref=e641]:
+                - link "Accesibilidad" [ref=e642] [cursor=pointer]:
+                  - /url: /es/accessibility/
+              - listitem [ref=e643]:
+                - link "Medio ambiente" [ref=e644] [cursor=pointer]:
+                  - /url: /es/environment/
+              - listitem [ref=e645]:
+                - link "Privacidad" [ref=e646] [cursor=pointer]:
+                  - /url: /es/privacy/
+              - listitem [ref=e647]:
+                - link "Innovación en la cadena de suministro" [ref=e648] [cursor=pointer]:
+                  - /url: /es/supply-chain/
+          - generic:
+            - heading "Acerca de Apple" [level=3] [ref=e649]
+            - list [ref=e651]:
+              - listitem [ref=e652]:
+                - link "Newsroom" [ref=e653] [cursor=pointer]:
+                  - /url: /es/newsroom/
+              - listitem [ref=e654]:
+                - link "Directivos de Apple" [ref=e655] [cursor=pointer]:
+                  - /url: /es/leadership/
+              - listitem [ref=e656]:
+                - link "Oportunidades laborales" [ref=e657] [cursor=pointer]:
+                  - /url: /careers/es/
+              - listitem [ref=e658]:
+                - link "Garantía" [ref=e659] [cursor=pointer]:
+                  - /url: /legal/warranty/statutoryrights.html
+              - listitem [ref=e660]:
+                - link "Inversores" [ref=e661] [cursor=pointer]:
+                  - /url: https://investor.apple.com/
+              - listitem [ref=e662]:
+                - link "Ética y conducta" [ref=e663] [cursor=pointer]:
+                  - /url: /es/compliance/
+              - listitem [ref=e664]:
+                - link "Eventos" [ref=e665] [cursor=pointer]:
+                  - /url: /es/apple-events/
+              - listitem [ref=e666]:
+                - link "Creación de empleo en Europa" [ref=e667] [cursor=pointer]:
+                  - /url: /es/job-creation/
+              - listitem [ref=e668]:
+                - link "Contacto" [ref=e669] [cursor=pointer]:
+                  - /url: /es/contact/
+      - generic [ref=e670]:
+        - generic [ref=e671]:
+          - text: "Más formas de comprar:"
+          - link "encuentra un Apple Store" [ref=e672] [cursor=pointer]:
+            - /url: /es/retail/
+          - text: o
+          - link "un distribuidor" [ref=e673] [cursor=pointer]:
+            - /url: https://locate.apple.com/es/es/
+          - text: cerca de ti.
+          - generic [ref=e674]:
+            - text: O llama al
+            - link "900 150 503" [ref=e675] [cursor=pointer]:
+              - /url: tel:900 150 503
+            - text: .
+        - generic [ref=e676]:
+          - generic [ref=e677]:
+            - generic [ref=e678]: Copyright © 2026 Apple Inc. Todos los derechos reservados.
+            - list [ref=e679]:
+              - listitem [ref=e680]:
+                - link "Política de privacidad" [ref=e681] [cursor=pointer]:
+                  - /url: /es/legal/privacy/
+              - listitem [ref=e682]:
+                - link "Uso de cookies" [ref=e683] [cursor=pointer]:
+                  - /url: /legal/privacy/es/cookies/
+              - listitem [ref=e684]:
+                - link "Condiciones de uso" [ref=e685] [cursor=pointer]:
+                  - /url: /es/legal/terms/site.html
+              - listitem [ref=e686]:
+                - link "Ventas y reembolsos" [ref=e687] [cursor=pointer]:
+                  - /url: /es/shop/goto/help/sales_refunds
+              - listitem [ref=e688]:
+                - link "Avisos legales" [ref=e689] [cursor=pointer]:
+                  - /url: /es/legal/
+              - listitem [ref=e690]:
+                - link "Mapa del sitio" [ref=e691] [cursor=pointer]:
+                  - /url: /es/sitemap/
+          - link "España. Elige tu país o región" [ref=e693] [cursor=pointer]:
+            - /url: /choose-country-region/
+            - text: España

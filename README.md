@@ -20,9 +20,36 @@ public/            ficheros servidos tal cual (favicon, CNAME, fuentes)
 src/site.ts        datos globales: nombre, descripción SEO, email, teléfono
 src/styles/        CSS global y tokens de marca (@theme de Tailwind)
 src/layouts/       BaseLayout: <head>, SEO, cabecera y pie
-src/components/    Seo, Header, Footer
+src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords
+src/components/sections/  secciones de la portada (Hero, Statement, PhoneStory, SystemGold, Demo, Solutions, Contact)
+src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis)
+src/scripts/compass3d.ts  brújula 3D del hero (Three.js, carga diferida)
 src/pages/         una ruta por fichero; robots.txt se genera desde robots.txt.ts
 ```
+
+## Animaciones
+
+La portada está pensada como una página de lanzamiento: secciones que se quedan fijas
+(`position: sticky`) mientras el scroll avanza una línea de tiempo de GSAP.
+
+- Todo el contenido está en el HTML; el JS solo anima. Un script en línea añade la clase
+  `motion` a `<html>` si el usuario no pide movimiento reducido. Los estilos que dependen
+  de ella usan la variante de Tailwind `motion:` (p. ej. `motion:h-[600vh]` para alargar
+  una sección animada). Sin JS o con `prefers-reduced-motion`, la página es estática y completa.
+- Los elementos animados se marcan con atributos `data-*` (`data-hero`, `data-story`,
+  `data-step`, `data-card`, `data-reveal`…) y `src/scripts/motion.ts` los busca.
+- La cabecera se vuelve oscura sobre cualquier sección con `data-dark`.
+- Three.js (~140 kB gzip) se carga bajo demanda y solo renderiza mientras el hero está en pantalla.
+
+## Vídeo demo
+
+Copia el vídeo en `public/video/` y rellena `demoVideo` en `src/site.ts`:
+
+```ts
+demoVideo: { src: '/video/demo.mp4', poster: '/video/demo-poster.jpg' },
+```
+
+Recomendado: MP4 H.264, 1080p, menos de ~15 MB, y un póster JPG del primer fotograma.
 
 ## Marca
 

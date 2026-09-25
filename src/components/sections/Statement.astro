@@ -1,0 +1,30 @@
+---
+// Párrafo que se "ilumina" palabra a palabra con el scroll.
+const segments = [
+  { text: 'Automatizamos WhatsApp con IA y añadimos estrategia comercial —guiones y campañas segmentadas— para' },
+  { text: 'captar, reactivar y cobrar', gold: true },
+  { text: 'sin fricción.' },
+];
+---
+
+<section data-statement class="relative motion:h-[220vh]">
+  <div class="flex min-h-svh items-center py-24 motion:sticky motion:top-0 motion:h-svh">
+    <p class="mx-auto max-w-5xl px-6 font-display text-3xl font-medium leading-[1.15] tracking-tight sm:text-4xl md:text-6xl">
+      {
+        segments.map((seg, i) => (
+          <>
+            <span class:list={[seg.gold && 'text-gold-deep']}>
+              {seg.text.split(' ').map((w, j, arr) => (
+                <>
+                  <span data-reveal-word>{w}</span>
+                  {j < arr.length - 1 && ' '}
+                </>
+              ))}
+            </span>
+            {i < segments.length - 1 && ' '}
+          </>
+        ))
+      }
+    </p>
+  </div>
+</section>

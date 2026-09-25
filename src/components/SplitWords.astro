@@ -1,0 +1,25 @@
+---
+// Parte un texto en palabras envueltas en <span> para animarlas.
+// El texto sigue siendo HTML normal: se indexa y se lee igual.
+interface Props {
+  text: string;
+  attr?: string;
+  class?: string;
+}
+
+const { text, attr = 'data-word', class: className } = Astro.props;
+const words = text.split(/\s+/).filter(Boolean);
+---
+
+{
+  words.map((word, i) => (
+    <>
+      <span class="inline-block overflow-hidden pb-[0.1em] -mb-[0.1em] align-top">
+        <span class:list={['inline-block', className]} {...{ [attr]: '' }}>
+          {word}
+        </span>
+      </span>
+      {i < words.length - 1 && ' '}
+    </>
+  ))
+}

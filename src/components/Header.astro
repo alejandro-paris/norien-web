@@ -1,25 +1,32 @@
 ---
 import logo from '../assets/img/Norien_Logo_Dark.svg';
-
-const navLinks = [
-  { label: 'Servicios', href: '/#servicios' },
-  { label: 'Contacto', href: '/#contacto' },
-];
+import logoLight from '../assets/img/Norien_Logo_Light.svg';
+import { NAV } from '../site';
 ---
 
-<header class="border-b border-ink/10">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-    <a href="/" aria-label="Norien, inicio">
-      <img src={logo.src} alt="Norien" width="132" height="24" class="h-6 w-auto" />
+<header
+  data-header
+  class="group/header fixed inset-x-0 top-0 z-50 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-300 data-[scrolled]:border-ink/10 data-[scrolled]:bg-paper/80 data-[scrolled]:backdrop-blur-md data-[on-dark]:!border-paper/10 data-[on-dark]:!bg-ink/80"
+>
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
+    <a href="/" aria-label="Norien, inicio" class="shrink-0">
+      <img src={logo.src} alt="Norien" width="132" height="24" class="h-5 w-auto group-data-[on-dark]/header:hidden md:h-6" />
+      <img src={logoLight.src} alt="" width="132" height="24" class="hidden h-5 w-auto group-data-[on-dark]/header:block md:h-6" />
     </a>
-    <nav aria-label="Principal">
-      <ul class="flex gap-6 text-sm uppercase tracking-wide text-ink-soft">
-        {navLinks.map((link) => (
+    <nav aria-label="Principal" class="hidden md:block">
+      <ul class="flex gap-8 text-sm text-ink-soft group-data-[on-dark]/header:text-paper/70">
+        {NAV.map((link) => (
           <li>
-            <a href={link.href} class="hover:text-ink">{link.label}</a>
+            <a href={link.href} class="transition-colors hover:text-ink group-data-[on-dark]/header:hover:text-paper">{link.label}</a>
           </li>
         ))}
       </ul>
     </nav>
+    <a
+      href="/#contacto"
+      class="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-gold hover:text-ink group-data-[on-dark]/header:bg-gold group-data-[on-dark]/header:text-ink"
+    >
+      Auditoría gratuita
+    </a>
   </div>
 </header>

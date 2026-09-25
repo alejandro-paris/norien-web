@@ -1,0 +1,40 @@
+---
+import Compass from '../Compass.astro';
+---
+
+<section id="soluciones" data-solutions class="relative overflow-hidden py-28 md:py-40">
+  <div class="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-[1.2fr_1fr]">
+    <div>
+      <p data-reveal class="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-ink-soft">Tarifas y soluciones</p>
+      <h2 data-reveal class="text-4xl font-bold leading-[1.02] tracking-tight md:text-6xl">
+        Soluciones personalizadas.<br />
+        <span class="text-gold-deep">Resultados medibles.</span>
+      </h2>
+      <p data-reveal class="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft">
+        Cada negocio es único. Diseñamos flujos de trabajo personalizados según tu volumen y necesidades.
+        Nuestra prioridad es tu eficiencia operativa: si el sistema no te ahorra tiempo real, no hemos
+        cumplido nuestro trabajo.
+      </p>
+      <a
+        data-reveal
+        href="#contacto"
+        class="mt-10 inline-flex items-center gap-3 rounded-full border border-ink px-8 py-4 font-medium transition-colors hover:bg-ink hover:text-paper"
+      >
+        Solicitar presupuesto a medida
+      </a>
+    </div>
+
+    <div class="[perspective:1400px]">
+      <div data-tilt-card class="relative overflow-hidden rounded-[2rem] bg-ink p-10 text-paper shadow-[0_60px_120px_-40px_rgba(5,10,48,0.55)] md:p-12">
+        <Compass class="absolute -right-16 -bottom-16 w-72 opacity-10" ring="#f7f5f0" needle="#c5a059" />
+        <p class="text-xs uppercase tracking-[0.2em] text-paper/60">Auditoría inicial</p>
+        <p class="mt-4 font-display text-7xl font-bold tracking-tight text-gold md:text-8xl">Gratis</p>
+        <ul class="relative mt-10 space-y-4 text-paper/85">
+          <li class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-gold"></span>Sin compromisos</li>
+          <li class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-gold"></span>Propuesta a medida de tu negocio</li>
+          <li class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-gold"></span>Implementación en 7–14 días</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

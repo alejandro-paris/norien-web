@@ -1,0 +1,54 @@
+---
+import { SITE } from '../../site';
+
+const channels = [
+  {
+    href: `mailto:${SITE.email}`,
+    title: '¿Prefieres email?',
+    text: 'Escríbenos con tu caso y lo valoramos de forma personalizada.',
+    value: SITE.email,
+    external: false,
+    icon: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
+  },
+  {
+    href: SITE.whatsappUrl,
+    title: '¿Lo vemos por WhatsApp?',
+    text: 'Te respondemos hoy y, si encaja, agendamos 15 minutos.',
+    value: SITE.phoneDisplay,
+    external: true,
+    icon: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/>',
+  },
+];
+---
+
+<section id="contacto" class="bg-paper-deep py-28 md:py-40">
+  <div class="mx-auto max-w-7xl px-6">
+    <p data-reveal class="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-ink-soft">Contacto</p>
+    <h2 data-reveal class="max-w-3xl text-4xl font-bold leading-[1.02] tracking-tight md:text-6xl">
+      Escríbenos y te respondemos <span class="text-gold-deep">en menos de 24 horas.</span>
+    </h2>
+
+    <div class="mt-16 grid gap-6 md:grid-cols-2">
+      {channels.map((c) => (
+        <a
+          data-reveal
+          href={c.href}
+          {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          class="group relative flex flex-col gap-6 overflow-hidden rounded-[2rem] bg-paper p-10 ring-1 ring-ink/5 transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_40px_80px_-40px_rgba(5,10,48,0.35)]"
+        >
+          <span class="grid size-14 place-items-center rounded-2xl bg-ink text-gold transition-colors group-hover:bg-gold group-hover:text-ink">
+            <svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={c.icon} />
+          </span>
+          <div>
+            <h3 class="text-2xl font-semibold md:text-3xl">{c.title}</h3>
+            <p class="mt-2 text-ink-soft">{c.text}</p>
+          </div>
+          <p class="mt-auto flex items-center justify-between border-t border-ink/10 pt-6 font-display text-lg font-medium">
+            {c.value}
+            <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
