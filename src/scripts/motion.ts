@@ -122,6 +122,8 @@ function guideLine() {
   const storyPin = $('[data-story-pin]');
   const steps = story ? $$('[data-step]', story) : [];
   const bars = story ? $$('[data-progress]', story) : [];
+  const overlay = story ? $('[data-step-overlay]', story) : null;
+  const overlaySteps = overlay ? $$('[data-overlay-step]', overlay) : [];
   const setChatStep = story ? chatController(story) : () => {};
 
   let length = 0;
@@ -233,14 +235,22 @@ function guideLine() {
       n.el?.classList.toggle('!text-ink', on);
     }
 
-    // Paso activo del chat = nodos de paso ya alcanzados.
+    // Paso activo = nodos de paso ya alcanzados.
     let active = 0;
     stepYs.slice(0, steps.length).forEach((y, i) => {
       if (tipY >= y) active = i + 1;
       bars[i] && gsap.set(bars[i], { scaleX: clamp((tipY - y) / (stepYs[i + 1] - y)) });
     });
     steps.forEach((s, i) => s.toggleAttribute('data-active', i + 1 === active));
-    setChatStep(active);
+
+    // Móvil: cada paso empieza presentando el servicio sobre el chat desenfocado
+    // (primer 40 % del tramo) y después la conversación lo muestra en acción.
+    const mobile = window.innerWidth < 768;
+    const intro =
+      mobile && active > 0 && tipY < stepYs[active - 1] + (stepYs[active] - stepYs[active - 1]) * 0.4;
+    overlay?.toggleAttribute('data-open', intro);
+    overlaySteps.forEach((el, i) => el.toggleAttribute('data-active', i + 1 === active));
+    setChatStep(intro ? active - 1 : active);
 
     // Tramo final dentro de la sección del vídeo.
     if (finalLine && finalNode) {
