@@ -97,6 +97,8 @@ function statementScene() {
 /**
  * Línea de puntos que baja por el margen izquierdo, se dibuja con el scroll y
  * "desbloquea" cada nodo (servicios, cada paso del chat, sistema) hasta el vídeo.
+ * Mientras la sección de servicios está fijada, la línea sigue avanzando por el
+ * margen y cada nodo que pasa por la punta avanza un paso del chat.
  */
 function guideLine() {
   const wrap = $('[data-guide-wrap]');
@@ -117,14 +119,15 @@ function guideLine() {
   const finalNode = $('[data-guide-final-node]');
 
   const story = $('[data-story]');
+  const storyPin = $('[data-story-pin]');
   const steps = story ? $$('[data-step]', story) : [];
   const bars = story ? $$('[data-progress]', story) : [];
   const setChatStep = story ? chatController(story) : () => {};
 
   let length = 0;
   let samples: number[] = []; // y de la línea cada SAMPLE px de longitud
-  let nodes: { y: number; g: SVGGElement; el: HTMLElement }[] = [];
-  let stepYs: number[] = [];
+  let nodes: { y: number; g: SVGGElement; el?: HTMLElement }[] = [];
+  let stepYs: number[] = []; // y de cada paso + y final (para la última barra)
   let endY = 0;
   let finalMax = 0;
   const SAMPLE = 6;
@@ -161,18 +164,38 @@ function guideLine() {
     endY = p3.y;
 
     nodesGroup.replaceChildren();
-    nodes = nodeEls.map((el) => {
-      const r = rel(el);
-      const y = r.y + r.h / 2;
+    const addNode = (y: number, el?: HTMLElement) => {
       const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
       g.setAttribute('transform', `translate(${gx} ${y})`);
       g.innerHTML = '<circle class="guide-node-halo" r="16"></circle><circle class="guide-node" r="7"></circle>';
       nodesGroup.append(g);
-      return { y, g, el };
-    });
-    stepYs = nodes.filter((n) => n.el.closest('[data-step]')).map((n) => n.y);
-    const goldNode = nodes.find((n) => n.el.closest('[data-system]'));
-    if (goldNode) stepYs.push(goldNode.y);
+      nodes.push({ y, g, el });
+    };
+    nodes = [];
+
+    const st = story ? rel(story) : null;
+    for (const el of nodeEls) {
+      const r = el.getBoundingClientRect();
+      // Dentro de la sección fijada se mide respecto al inicio de la sección (posición al fijarse).
+      const y =
+        st && storyPin?.contains(el)
+          ? st.y + (r.top - storyPin.getBoundingClientRect().top) + r.height / 2
+          : rel(el).y + r.height / 2;
+      addNode(y, el);
+    }
+
+    // Nodos de los pasos: repartidos a lo largo del recorrido fijado de la sección.
+    stepYs = [];
+    if (st && steps.length) {
+      const travel = Math.max(0, st.h - window.innerHeight) * 0.9;
+      const offset = window.innerHeight * tipRatio();
+      for (let i = 0; i <= steps.length; i++) {
+        const y = st.y + offset + 4 + (travel * i) / steps.length;
+        stepYs.push(y);
+        if (i < steps.length) addNode(y);
+      }
+    }
+    nodes.sort((a, b) => a.y - b.y);
 
     if (finalLine && finalNode) {
       finalMax = finalNode.getBoundingClientRect().top - finalLine.parentElement!.getBoundingClientRect().top + 6;
@@ -207,7 +230,7 @@ function guideLine() {
     for (const n of nodes) {
       const on = tipY >= n.y;
       n.g.toggleAttribute('data-active', on);
-      n.el.classList.toggle('!text-ink', on && !n.el.closest('[data-step]'));
+      n.el?.classList.toggle('!text-ink', on);
     }
 
     // Paso activo del chat = nodos de paso ya alcanzados.
@@ -328,8 +351,8 @@ function demoScene() {
     })
     .fromTo(
       '[data-demo-frame]',
-      { scale: small ? 0.82 : 0.5, borderRadius: small ? 24 : 56 },
-      { scale: 1, borderRadius: 0, duration: 1, ease: 'power1.inOut' },
+      { scale: small ? 0.82 : 0.5, borderRadius: small ? 24 : 56, y: small ? window.innerHeight * 0.14 : 0 },
+      { scale: 1, borderRadius: 0, y: 0, duration: 1, ease: 'power1.inOut' },
     )
     .to(['[data-demo-copy]', '[data-guide-final]'], { autoAlpha: 0, y: -40, duration: 0.3 }, 0.2)
     .to({}, { duration: 0.35 });

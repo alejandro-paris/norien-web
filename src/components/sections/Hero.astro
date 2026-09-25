@@ -2,31 +2,36 @@
 import SplitWords from '../SplitWords.astro';
 ---
 
-<section data-hero class="relative flex min-h-svh flex-col items-center justify-center px-6 pt-28 pb-16">
-  <div class="relative z-10 mx-auto max-w-5xl text-center">
-    <p data-intro class="mb-6 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-paper/70 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-ink-soft">
-      <span class="size-1.5 rounded-full bg-gold"></span>
-      Para PYMES de citas, reservas y membresías
+<section data-hero class="relative flex min-h-svh flex-col justify-center pt-28 pb-16">
+  <div class="guide-container w-full">
+    <p data-intro class="mb-6 max-w-xl text-base text-ink-soft md:text-lg">
+      Para PYMES de citas, reservas y membresías.
     </p>
-    <h1 class="text-[2.6rem] font-bold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl xl:text-8xl">
+    <h1 class="max-w-5xl text-[2.7rem] font-bold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl xl:text-8xl">
       <SplitWords text="Convierte conversaciones en" />{' '}
       <span class="text-gold-deep"><SplitWords text="reservas, citas y pagos." /></span>
     </h1>
-    <div data-intro class="mt-10 flex flex-col items-center gap-4">
+    <div data-intro class="mt-10 flex flex-wrap items-center gap-3">
       <a
         href="#contacto"
-        class="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-base font-medium text-paper transition-colors hover:bg-gold hover:text-ink"
+        class="group inline-flex items-center gap-3 rounded-full bg-ink px-7 py-3.5 text-base font-medium text-paper transition-colors hover:bg-gold hover:text-ink"
       >
         Quiero ahorrar tiempo
         <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
       </a>
-      <p class="text-xs uppercase tracking-[0.2em] text-ink-soft">Sin compromisos · Auditoría inicial gratuita</p>
+      <a
+        href="#demo"
+        class="inline-flex items-center rounded-full px-7 py-3.5 text-base font-medium text-ink ring-1 ring-ink/15 transition-colors hover:ring-ink/40"
+      >
+        Ver la demo
+      </a>
     </div>
+    <p data-intro class="mt-5 text-sm text-ink-soft">Sin compromisos. Auditoría inicial gratuita.</p>
 
     <!-- Punto de salida de la línea guía -->
-    <div data-intro class="mt-14 hidden flex-col items-center gap-3 motion:flex" aria-hidden="true">
-      <span class="text-[11px] uppercase tracking-[0.3em] text-ink-soft">Descubre cómo</span>
+    <div data-intro class="mt-16 hidden items-center gap-3 motion:flex" aria-hidden="true">
       <span data-guide-start class="block size-3 rounded-full bg-gold ring-4 ring-gold/25"></span>
+      <span class="text-sm text-ink-soft">Descubre cómo</span>
     </div>
   </div>
 </section>
