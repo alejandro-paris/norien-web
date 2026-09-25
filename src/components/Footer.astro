@@ -1,0 +1,14 @@
+---
+import { SITE } from '../site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-ink/10 bg-paper-deep">
+  <div class="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-8 text-sm text-ink-soft md:flex-row md:justify-between">
+    <p>&copy; {year} {SITE.name}. Todos los derechos reservados.</p>
+    <p>
+      <a href={`mailto:${SITE.email}`} class="hover:text-ink">{SITE.email}</a>
+    </p>
+  </div>
+</footer>

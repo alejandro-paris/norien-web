@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter_variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter_italic_variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/Space_Grotesk_variable.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+/* Tokens de marca. Fondo claro (blanco roto); el azul pasa a ser color de texto y acento. */
+@theme {
+  --color-paper: #f7f5f0;
+  --color-paper-deep: #efece4;
+  --color-ink: #050a30;
+  --color-ink-soft: #3d4260;
+  --color-gold: #c5a059;
+  --color-gold-hover: #b08d45;
+  --color-silver: #a0a0a0;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-gold text-ink;
+  }
+}

@@ -1,0 +1,25 @@
+---
+import logo from '../assets/img/Norien_Logo_Dark.svg';
+
+const navLinks = [
+  { label: 'Servicios', href: '/#servicios' },
+  { label: 'Contacto', href: '/#contacto' },
+];
+---
+
+<header class="border-b border-ink/10">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+    <a href="/" aria-label="Norien, inicio">
+      <img src={logo.src} alt="Norien" width="132" height="24" class="h-6 w-auto" />
+    </a>
+    <nav aria-label="Principal">
+      <ul class="flex gap-6 text-sm uppercase tracking-wide text-ink-soft">
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="hover:text-ink">{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
