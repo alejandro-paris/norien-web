@@ -3,20 +3,20 @@
 // pasan los cuatro servicios; al llegar la línea guía a cada uno, el chat avanza.
 const steps = [
   {
-    title: 'Atención 24/7 que convierte',
-    text: 'Respuesta inmediata en WhatsApp y cualificación automática. Menos leads perdidos, más reservas y citas.',
+    title: 'Contesta al momento, a cualquier hora',
+    text: 'Aunque sean las doce de la noche o estés con otro cliente. Pregunta lo necesario para saber qué busca cada persona y nadie se queda esperando.',
   },
   {
-    title: 'Sistema de reservas y citas',
-    text: 'Gestión automática del calendario: confirmaciones, recordatorios y reprogramaciones sin intervención manual. Más asistencia, menos bajas.',
+    title: 'Da cita y la apunta en tu agenda',
+    text: 'Ofrece los huecos que tienes libres, confirma la cita y manda un recordatorio el día antes. Si alguien no puede venir, la cambia sin que tengas que llamar.',
   },
   {
-    title: 'Mensajería masiva con estrategia',
-    text: 'Envío de mensajes a gran escala con oferta, copy y segmentación para llenar huecos y reactivar clientes.',
+    title: 'Avisa a tus clientes cuando te interesa',
+    text: '¿Te quedan huecos esta semana o hay clientes que hace meses que no vienen? Preparamos contigo el mensaje y a quién mandarlo, y sale para todos de una vez.',
   },
   {
-    title: 'Cobro y seguimiento automático',
-    text: 'Recordatorios a impagos y pago directo con Stripe desde el chat. Menos fricción, más cobros a tiempo.',
+    title: 'Cobra sin perseguir a nadie',
+    text: 'Manda el enlace de pago por el mismo chat y recuerda los pagos pendientes con educación. El dinero te llega por Stripe.',
   },
 ];
 
@@ -40,9 +40,9 @@ const icon = (d: string) =>
 
 // Etiquetas flotantes que refuerzan lo que pasa en cada paso.
 const pills = [
-  { title: 'Respuesta inmediata', sub: '23:47 · fuera de horario', icon: icon('<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>'), pos: 'left-3 top-[18%] md:-left-8 md:top-[22%] xl:-left-12' },
-  { title: 'Cita confirmada', sub: 'Jueves 10:30 · recordatorio programado', icon: icon('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/>'), pos: 'right-3 top-[30%] md:-right-4 md:top-[34%] xl:-right-14' },
-  { title: 'Campaña de reactivación', sub: 'Segmento: clientes inactivos', icon: icon('<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>'), pos: 'left-3 top-[24%] md:-left-8 md:top-[26%] xl:-left-14' },
+  { title: 'Contestado al momento', sub: '23:47 · ya habías cerrado', icon: icon('<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>'), pos: 'left-3 top-[18%] md:-left-8 md:top-[22%] xl:-left-12' },
+  { title: 'Cita apuntada', sub: 'Jueves 10:30 · le avisamos el día antes', icon: icon('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/>'), pos: 'right-3 top-[30%] md:-right-4 md:top-[34%] xl:-right-14' },
+  { title: 'Mensaje enviado', sub: 'A quienes llevan 2 meses sin venir', icon: icon('<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>'), pos: 'left-3 top-[24%] md:-left-8 md:top-[26%] xl:-left-14' },
   { title: 'Pago recibido', sub: '45,00 € · Stripe', icon: icon('<path d="M20 6 9 17l-5-5"/>'), pos: 'right-3 bottom-[24%] md:-right-4 md:bottom-[26%] xl:-right-12', dark: true },
 ];
 ---
@@ -50,9 +50,9 @@ const pills = [
 <section id="servicios" data-story class="relative motion:h-[520vh]">
   <div data-story-pin class="motion:sticky motion:top-0 motion:flex motion:h-svh motion:flex-col motion:justify-center motion:overflow-hidden">
   <div class="guide-container w-full pt-16 pb-24 md:pt-24 motion:pt-[72px] motion:pb-4 md:motion:pt-16">
-    <p data-guide-node class="mb-3 text-sm font-medium text-ink-soft">Nuestros servicios</p>
+    <p data-guide-node class="mb-3 text-sm font-medium text-ink-soft">Qué hacemos</p>
     <h2 class="max-w-3xl text-3xl font-bold tracking-tight motion:max-md:sr-only md:text-5xl">
-      Un sistema que trabaja <span class="text-gold-deep">mientras tú atiendes.</span>
+      Tú atiendes a quien tienes delante. <span class="text-gold-deep">Del WhatsApp nos ocupamos nosotros.</span>
     </h2>
 
     <div class="mt-12 grid gap-10 motion:mt-2 motion:gap-6 md:grid-cols-[1fr_1.2fr] md:items-center md:gap-16 md:motion:mt-8 md:motion:gap-16">
@@ -76,7 +76,7 @@ const pills = [
                 <span class="grid size-10 place-items-center rounded-full bg-gold/25 font-display text-sm font-bold text-ink">PA</span>
                 <div class="leading-tight">
                   <p class="font-semibold text-ink">Pilates Alba</p>
-                  <p class="text-xs text-ink-soft"><span class="mr-1 inline-block size-1.5 rounded-full bg-emerald-500 align-middle"></span>en línea · asistente automático</p>
+                  <p class="text-xs text-ink-soft"><span class="mr-1 inline-block size-1.5 rounded-full bg-emerald-500 align-middle"></span>en línea · respuesta automática</p>
                 </div>
               </div>
 

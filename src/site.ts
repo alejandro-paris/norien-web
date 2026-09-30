@@ -1,9 +1,9 @@
 // Datos globales del sitio: una sola fuente para SEO, cabecera, pie y contacto.
 export const SITE = {
   name: 'Norien',
-  defaultTitle: 'Norien | Automatización de WhatsApp con IA para PYMES',
+  defaultTitle: 'Norien | Tu WhatsApp contesta, da citas y cobra por ti',
   description:
-    'Automatizamos WhatsApp con IA para negocios de citas, reservas y membresías: respuesta 24/7, agenda automática, campañas de reactivación y cobros sin fricción.',
+    'Montamos un asistente en el WhatsApp de tu negocio que contesta a cualquier hora, da citas, avisa a tus clientes y cobra por el mismo chat. Primera auditoría gratis.',
   email: 'info@norien.es',
   phone: '+34644980352',
   phoneDisplay: '+34 644 98 03 52',
@@ -16,6 +16,6 @@ export const SITE = {
 export const NAV = [
   { label: 'Servicios', href: '/#servicios' },
   { label: 'Demo', href: '/#demo' },
-  { label: 'Tarifas', href: '/#soluciones' },
+  { label: 'Precios', href: '/#soluciones' },
   { label: 'Contacto', href: '/#contacto' },
 ] as const;
