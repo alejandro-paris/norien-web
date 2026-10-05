@@ -63,13 +63,19 @@ de la línea guía.
 
 ## Vídeo demo
 
-Copia el vídeo en `public/video/` y rellena `demoVideo` en `src/site.ts`:
+El vídeo está en `public/video/` y se configura en `demoVideo` de `src/site.ts`:
 
 ```ts
-demoVideo: { src: '/video/demo.mp4', poster: '/video/demo-poster.jpg' },
+demoVideo: {
+  src: '/video/norien-demo.mp4',
+  poster: '/video/norien-demo-poster.jpg',
+  ratio: 1776 / 854, // ancho / alto del vídeo, para que el marco no lo recorte
+},
 ```
 
-Recomendado: MP4 H.264, 1080p, menos de ~15 MB, y un póster JPG del primer fotograma.
+Para cambiarlo: MP4 H.264 con el índice al principio (`-movflags +faststart`, HandBrake
+lo hace con "Web Optimized"), idealmente por debajo de ~20 MB, y un póster JPG.
+Actualiza `ratio` si cambian las proporciones. El vídeo se pausa solo al salir de la sección.
 
 ## Marca
 

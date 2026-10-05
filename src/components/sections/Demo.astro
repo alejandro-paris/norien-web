@@ -4,6 +4,7 @@ import { SITE } from '../../site';
 import Compass from '../Compass.astro';
 
 const video = SITE.demoVideo;
+const ratio = video?.ratio ?? 16 / 9;
 ---
 
 <section id="demo" data-demo data-dark class="relative z-30 bg-ink text-paper motion:h-[260vh]">
@@ -26,7 +27,8 @@ const video = SITE.demoVideo;
 
     <div
       data-demo-frame
-      class="relative aspect-video w-full max-w-5xl overflow-hidden rounded-3xl bg-[#0b1140] ring-1 ring-paper/10 motion:w-[min(100vw,177.78svh)] motion:max-w-none motion:rounded-none"
+      class="demo-frame relative w-full max-w-5xl overflow-hidden rounded-3xl bg-[#0b1140] ring-1 ring-paper/10 motion:max-w-none motion:rounded-none"
+      style={`--ratio:${ratio}`}
     >
       {
         video ? (
@@ -37,7 +39,10 @@ const video = SITE.demoVideo;
             controls
             playsinline
             preload="metadata"
-          />
+            data-demo-video
+          >
+            Tu navegador no puede reproducir este vídeo.
+          </video>
         ) : (
           <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_50%_40%,#1c2464,#050a30_70%)]">
             <Compass class="absolute w-[38%] opacity-[0.07]" ring="#f7f5f0" needle="#c5a059" />
@@ -53,3 +58,14 @@ const video = SITE.demoVideo;
     </div>
   </div>
 </section>
+
+<style>
+  .demo-frame {
+    aspect-ratio: var(--ratio);
+  }
+
+  /* Con animaciones, el marco llega a ocupar la pantalla sin recortar el vídeo. */
+  :global(.motion) .demo-frame {
+    width: min(100vw, calc(100svh * var(--ratio)));
+  }
+</style>

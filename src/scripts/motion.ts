@@ -27,6 +27,14 @@ const updateHeader = () => header?.toggleAttribute('data-scrolled', window.scrol
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
 
+// Vídeo demo: se pausa solo si el usuario sale de la sección mientras se reproduce.
+const demoVideo = $<HTMLVideoElement>('[data-demo-video]');
+if (demoVideo) {
+  new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting && !demoVideo.paused) demoVideo.pause();
+  }).observe(demoVideo);
+}
+
 if (motion) {
   gsap.registerPlugin(ScrollTrigger);
   setupSmoothScroll();
@@ -324,7 +332,7 @@ function demoScene() {
     })
     .fromTo(
       '[data-demo-frame]',
-      { scale: small ? 0.82 : 0.5, borderRadius: small ? 24 : 56, y: small ? window.innerHeight * 0.14 : 0 },
+      { scale: small ? 0.82 : 0.5, borderRadius: small ? 24 : 56, y: window.innerHeight * (small ? 0.14 : 0.09) },
       { scale: 1, borderRadius: 0, y: 0, duration: 1, ease: 'power1.inOut' },
     )
     .to(['[data-demo-copy]', '[data-guide-final]'], { autoAlpha: 0, y: -40, duration: 0.3 }, 0.2)
