@@ -1,9 +1,9 @@
 // Datos globales del sitio: una sola fuente para SEO, cabecera, pie y contacto.
 export const SITE = {
   name: 'Norien',
-  defaultTitle: 'Norien | Tu WhatsApp contesta, da citas y cobra por ti',
+  defaultTitle: 'Norien | Tú atiendes a quien tienes delante. Del resto nos ocupamos nosotros',
   description:
-    'Montamos un asistente en el WhatsApp de tu negocio que contesta a cualquier hora, da citas, avisa a tus clientes y cobra por el mismo chat. Primera auditoría gratis.',
+    'Contestamos a tus clientes por WhatsApp, Instagram o teléfono, les damos cita, les recordamos lo pendiente y les mandamos la promoción que les toca. Auditoría gratis de 30 minutos.',
   email: 'info@norien.es',
   phone: '+34644980352',
   phoneDisplay: '+34 644 98 03 52',

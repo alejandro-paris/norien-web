@@ -1,0 +1,73 @@
+---
+// Franja de plataformas bajo el hero. Logos monocromos de simple-icons (SVG oficiales
+// de cada marca), renderizados en el build: no añade JavaScript a la página.
+import {
+  siWhatsapp,
+  siInstagram,
+  siMessenger,
+  siMeta,
+  siTelegram,
+  siGooglecalendar,
+  siGmail,
+  siGoogle,
+  siStripe,
+  siPaypal,
+  siRedsys,
+} from 'simple-icons';
+
+const brands = [
+  { icon: siWhatsapp, label: 'WhatsApp' },
+  { icon: siInstagram, label: 'Instagram' },
+  { icon: siMessenger, label: 'Messenger' },
+  { icon: siMeta, label: 'Meta' },
+  { icon: siTelegram, label: 'Telegram' },
+  { icon: siGooglecalendar, label: 'Google Calendar' },
+  { icon: siGmail, label: 'Gmail' },
+  { icon: siGoogle, label: 'Google' },
+  { icon: siStripe, label: 'Stripe' },
+  { icon: siPaypal, label: 'PayPal' },
+  { icon: siRedsys, label: 'Redsys' },
+];
+---
+
+<section aria-labelledby="plataformas" class="relative">
+  <div class="guide-container pb-8 md:pb-4">
+    <p id="plataformas" data-reveal class="mb-6 text-sm text-ink-soft md:text-base">
+      Trabajamos sobre las plataformas que ya usáis tú y tus clientes.
+    </p>
+  </div>
+  <!-- En móvil, una fila con scroll horizontal; en escritorio, varias filas centradas. -->
+  <div data-reveal class="logo-row guide-container overflow-x-auto pb-4 md:overflow-visible">
+    <ul class="flex w-max gap-x-8 gap-y-5 pr-6 md:w-auto md:flex-wrap md:pr-0">
+      {
+        brands.map((b) => (
+          <li class="flex shrink-0 items-center gap-2 text-ink/80">
+            <svg viewBox="0 0 24 24" class="size-5" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d={b.icon.path} />
+            </svg>
+            <span class="text-sm font-medium whitespace-nowrap">{b.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .logo-row {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .logo-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Difumina el borde derecho en móvil para indicar que hay más logos. */
+  @media (max-width: 767px) {
+    .logo-row {
+      mask-image: linear-gradient(to right, black 85%, transparent);
+    }
+  }
+</style>

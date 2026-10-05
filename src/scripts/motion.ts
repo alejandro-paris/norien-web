@@ -99,7 +99,7 @@ function statementScene() {
     opacity: 1,
     ease: 'none',
     stagger: 0.1,
-    scrollTrigger: { trigger: '[data-statement-text]', start: 'top 75%', end: 'bottom 50%', scrub: true },
+    scrollTrigger: { trigger: '[data-statement-text]', start: 'top 80%', end: 'bottom 65%', scrub: true },
   });
 }
 
