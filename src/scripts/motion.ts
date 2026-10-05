@@ -34,6 +34,7 @@ if (motion) {
   heroIntro();
   statementScene();
   guideLine();
+  servicesScene();
   goldScene();
   demoScene();
   solutionsScene();
@@ -96,9 +97,7 @@ function statementScene() {
 
 /**
  * Línea de puntos que baja por el margen izquierdo, se dibuja con el scroll y
- * "desbloquea" cada nodo (servicios, cada paso del chat, sistema) hasta el vídeo.
- * Mientras la sección de servicios está fijada, la línea sigue avanzando por el
- * margen y cada nodo que pasa por la punta avanza un paso del chat.
+ * "desbloquea" cada nodo (servicios, cada tarjeta, sistema) hasta el vídeo.
  */
 function guideLine() {
   const wrap = $('[data-guide-wrap]');
@@ -118,18 +117,10 @@ function guideLine() {
   const finalLine = $('[data-guide-final]');
   const finalNode = $('[data-guide-final-node]');
 
-  const story = $('[data-story]');
-  const storyPin = $('[data-story-pin]');
-  const steps = story ? $$('[data-step]', story) : [];
-  const bars = story ? $$('[data-progress]', story) : [];
-  const overlay = story ? $('[data-step-overlay]', story) : null;
-  const overlaySteps = overlay ? $$('[data-overlay-step]', overlay) : [];
-  const setChatStep = story ? chatController(story) : () => {};
 
   let length = 0;
   let samples: number[] = []; // y de la línea cada SAMPLE px de longitud
   let nodes: { y: number; g: SVGGElement; el?: HTMLElement }[] = [];
-  let stepYs: number[] = []; // y de cada paso + y final (para la última barra)
   let endY = 0;
   let finalMax = 0;
   const SAMPLE = 6;
@@ -175,27 +166,9 @@ function guideLine() {
     };
     nodes = [];
 
-    const st = story ? rel(story) : null;
     for (const el of nodeEls) {
-      const r = el.getBoundingClientRect();
-      // Dentro de la sección fijada se mide respecto al inicio de la sección (posición al fijarse).
-      const y =
-        st && storyPin?.contains(el)
-          ? st.y + (r.top - storyPin.getBoundingClientRect().top) + r.height / 2
-          : rel(el).y + r.height / 2;
-      addNode(y, el);
-    }
-
-    // Nodos de los pasos: repartidos a lo largo del recorrido fijado de la sección.
-    stepYs = [];
-    if (st && steps.length) {
-      const travel = Math.max(0, st.h - window.innerHeight) * 0.9;
-      const offset = window.innerHeight * tipRatio();
-      for (let i = 0; i <= steps.length; i++) {
-        const y = st.y + offset + 4 + (travel * i) / steps.length;
-        stepYs.push(y);
-        if (i < steps.length) addNode(y);
-      }
+      const r = rel(el);
+      addNode(r.y + r.h / 2, el);
     }
     nodes.sort((a, b) => a.y - b.y);
 
@@ -235,23 +208,6 @@ function guideLine() {
       n.el?.classList.toggle('!text-ink', on);
     }
 
-    // Paso activo = nodos de paso ya alcanzados.
-    let active = 0;
-    stepYs.slice(0, steps.length).forEach((y, i) => {
-      if (tipY >= y) active = i + 1;
-      bars[i] && gsap.set(bars[i], { scaleX: clamp((tipY - y) / (stepYs[i + 1] - y)) });
-    });
-    steps.forEach((s, i) => s.toggleAttribute('data-active', i + 1 === active));
-
-    // Móvil: cada paso empieza presentando el servicio sobre el chat desenfocado
-    // (primer 40 % del tramo) y después la conversación lo muestra en acción.
-    const mobile = window.innerWidth < 768;
-    const intro =
-      mobile && active > 0 && tipY < stepYs[active - 1] + (stepYs[active] - stepYs[active - 1]) * 0.4;
-    overlay?.toggleAttribute('data-open', intro);
-    overlaySteps.forEach((el, i) => el.toggleAttribute('data-active', i + 1 === active));
-    setChatStep(intro ? active - 1 : active);
-
     // Tramo final dentro de la sección del vídeo.
     if (finalLine && finalNode) {
       const top = finalLine.parentElement!.getBoundingClientRect().top;
@@ -271,59 +227,66 @@ function guideLine() {
   gsap.ticker.add(update);
 }
 
-/** Chat de servicios: avanza mensaje a mensaje (con "escribiendo…") al cambiar de paso. */
-function chatController(scope: HTMLElement) {
-  const msgs = $$('[data-msg]', scope);
-  const pills = $$('[data-pill]', scope);
-  const typing = $('[data-typing]', scope)!;
-  gsap.set(msgs, { height: 0, autoAlpha: 0 });
-  gsap.set(pills, { autoAlpha: 0, y: 14 });
-  gsap.set(typing, { display: 'block', height: 0, autoAlpha: 0 });
+/**
+ * Servicios: tarjetas que se apilan. Cada mini demo se monta mientras su tarjeta sube
+ * hasta su sitio (ligado al scroll, no al tiempo) y la tarjeta anterior se encoge detrás.
+ * Los disparadores son marcas en el flujo, porque las tarjetas fijas (sticky) se miden mal.
+ */
+function servicesScene() {
+  const cards = $$('[data-service-card]');
+  const markers = $$('[data-card-marker]');
+  if (!cards.length || cards.length !== markers.length) return;
 
-  let shown = 0;
-  let tl: gsap.core.Timeline | undefined;
+  const stickTop = (card: HTMLElement) => parseFloat(getComputedStyle(card).top) || 0;
 
-  return (target: number) => {
-    if (target === shown) return;
-    tl?.progress(1).kill();
+  cards.forEach((card, i) => {
+    const d = (name: string) => $$(`[data-d="${name}"]`, card);
+    const tl = gsap.timeline({
+      defaults: { ease: 'none' },
+      scrollTrigger: {
+        trigger: markers[i],
+        start: 'top 85%',
+        end: () => `top ${stickTop(card) + 40}px`,
+        scrub: 0.4,
+      },
+    });
+    const pop = { autoAlpha: 0, y: 14, scale: 0.97 };
+    const show = { autoAlpha: 1, y: 0, scale: 1, duration: 1 };
 
-    if (target < shown) {
-      gsap.to(
-        msgs.filter((m) => Number(m.dataset.msg) > target),
-        { height: 0, autoAlpha: 0, duration: 0.3, ease: 'power2.inOut' },
-      );
-      pills.forEach((p, i) => gsap.to(p, { autoAlpha: i + 1 === target ? 1 : 0, y: 0, duration: 0.3 }));
-      shown = target;
-      return;
+    if (i === 0) {
+      tl.fromTo(d('in'), pop, show)
+        .fromTo(d('typing'), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5 })
+        .to(d('typing'), { autoAlpha: 0, duration: 0.3 }, '+=0.7')
+        .fromTo(d('out'), pop, show, '<')
+        .fromTo(d('tag'), pop, show);
+    } else if (i === 1) {
+      tl.fromTo(d('slot'), { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 1.2 }, 0.4)
+        .fromTo(d('tag'), pop, show, '+=0.3');
+    } else if (i === 2) {
+      tl.fromTo(d('out'), pop, show)
+        .fromTo(d('sent'), { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.4, stagger: 0.15 })
+        .fromTo(d('in'), pop, show)
+        .fromTo(d('tag'), pop, show);
+    } else {
+      tl.fromTo(d('out'), pop, show)
+        .fromTo(d('paid'), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6 }, '+=0.6')
+        .fromTo(d('tag'), pop, show);
     }
 
-    tl = gsap.timeline();
-    const skipping = target - shown > 1;
-    for (let s = shown + 1; s <= target; s++) {
-      if (pills[s - 2]) tl.to(pills[s - 2], { autoAlpha: 0, y: -10, duration: 0.25 }, tl.duration());
-      for (const m of msgs.filter((el) => Number(el.dataset.msg) === s)) {
-        if (m.dataset.from === 'them' && !skipping) {
-          tl.to(typing, { height: 'auto', autoAlpha: 1, duration: 0.2 }, '+=0.2')
-            .to({}, { duration: 0.6 })
-            .to(typing, { height: 0, autoAlpha: 0, duration: 0.1 });
-        }
-        tl.fromTo(
-          m,
-          { height: 0, autoAlpha: 0, y: 14 },
-          { height: 'auto', autoAlpha: 1, y: 0, duration: 0.35, ease: 'power2.out' },
-          m.dataset.from === 'me' ? '+=0.35' : '>',
-        );
-      }
-      tl.fromTo(
-        pills[s - 1],
-        { autoAlpha: 0, y: 14, scale: 0.95 },
-        { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(1.7)' },
-        '-=0.15',
-      );
+    // La tarjeta anterior se encoge un poco mientras la siguiente la tapa.
+    if (i > 0) {
+      gsap.to(cards[i - 1], {
+        scale: 0.94,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: markers[i],
+          start: 'top bottom',
+          end: () => `top ${stickTop(card)}px`,
+          scrub: true,
+        },
+      });
     }
-    if (skipping) tl.timeScale(3);
-    shown = target;
-  };
+  });
 }
 
 /** Sección dorada: se abre como una ventana y las palabras entran desde los lados. */

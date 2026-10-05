@@ -21,7 +21,7 @@ src/site.ts        datos globales: nombre, descripción SEO, email, teléfono
 src/styles/        CSS global y tokens de marca (@theme de Tailwind)
 src/layouts/       BaseLayout: <head>, SEO, cabecera y pie
 src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords
-src/components/sections/  secciones de la portada (Hero, Statement, ChatStory, SystemGold, Demo, Solutions, Contact)
+src/components/sections/  secciones de la portada (Hero, Statement, ServiceCards, SystemGold, Demo, Solutions, Contact)
 src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis) y línea guía
 src/pages/         una ruta por fichero; robots.txt se genera desde robots.txt.ts
 ```
@@ -49,8 +49,15 @@ su punta va siempre al 60 % de la altura de la pantalla (72 % en móvil).
   solo al contenido y al tamaño de pantalla. Las secciones que recorre usan la clase
   `.guide-container`, que deja libre el margen izquierdo.
 - Cualquier elemento con `data-guide-node` crea un nodo que se enciende al llegar la línea.
-  Los nodos dentro de `[data-step]` controlan el chat de servicios: cada uno avanza la
-  conversación un paso (mensajes, "escribiendo…" y etiqueta flotante).
+
+### Servicios
+
+Cuatro tarjetas que se apilan (`position: sticky` con un `top` creciente). Cada una
+tiene una mini demo (`[data-card-demo]`) cuyas piezas (`data-d="…"`) se animan ligadas
+al scroll mientras la tarjeta sube a su sitio, nunca con temporizador: quien baja rápido
+ve el resultado final y quien sube lo ve retroceder. Como las tarjetas fijas se miden mal,
+los disparadores son marcas en el flujo (`[data-card-marker]`), que también hacen de nodos
+de la línea guía.
 - El último tramo va dentro de la sección del vídeo (`data-guide-final`) para que siga
   fijo mientras el vídeo crece.
 

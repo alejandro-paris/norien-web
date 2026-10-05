@@ -143,18 +143,6 @@ html.lenis body {
   transition: color 0.4s;
 }
 
-.motion [data-step] {
-  transition:
-    opacity 0.45s ease,
-    transform 0.45s ease;
-}
-
-.motion [data-step]:not([data-active]) {
-  opacity: 0;
-  transform: translateY(16px);
-  pointer-events: none;
-}
-
 /* Estados iniciales de las animaciones (solo con `motion`), para evitar parpadeos. */
 .motion [data-hero] [data-word] {
   transform: translateY(110%);
