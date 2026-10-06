@@ -1,5 +1,6 @@
 ---
 import { SITE } from '../../site';
+import { siWhatsapp } from 'simple-icons';
 
 const channels = [
   {
@@ -8,7 +9,8 @@ const channels = [
     text: 'Cuéntanos a qué te dedicas y qué te gustaría quitarte de encima.',
     value: SITE.email,
     external: false,
-    icon: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
+    // Icono de línea (trazo)
+    icon: '<svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
   },
   {
     href: SITE.whatsappUrl,
@@ -16,7 +18,8 @@ const channels = [
     text: 'Te contestamos hoy y, si encaja, quedamos 30 minutos para ver tu caso.',
     value: SITE.phoneDisplay,
     external: true,
-    icon: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/>',
+    // Logo oficial de WhatsApp (simple-icons), relleno
+    icon: `<svg viewBox="0 0 24 24" class="size-6" fill="currentColor" aria-hidden="true"><path d="${siWhatsapp.path}"/></svg>`,
   },
 ];
 ---
@@ -35,9 +38,10 @@ const channels = [
           {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           class="group relative flex flex-col gap-6 overflow-hidden rounded-[2rem] bg-paper p-10 ring-1 ring-ink/5 transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_40px_80px_-40px_rgba(5,10,48,0.35)]"
         >
-          <span class="grid size-14 place-items-center rounded-2xl bg-ink text-gold transition-colors group-hover:bg-gold group-hover:text-ink">
-            <svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={c.icon} />
-          </span>
+          <span
+            class="grid size-14 place-items-center rounded-2xl bg-ink text-gold transition-colors group-hover:bg-gold group-hover:text-ink"
+            set:html={c.icon}
+          />
           <div>
             <h3 class="text-2xl font-semibold">{c.title}</h3>
             <p class="mt-2 text-ink-soft">{c.text}</p>
