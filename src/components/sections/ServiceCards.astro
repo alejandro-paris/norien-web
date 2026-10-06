@@ -48,12 +48,13 @@ const people = ['MR', 'JL', 'AP', 'SG', 'CN', 'LB'];
 
 <section id="servicios" data-services class="relative">
   <div class="guide-container pt-16 pb-24 md:pt-24 md:pb-32">
-    <SectionLabel num="04" label="Qué hacemos" node />
+    <SectionLabel num="03" label="Qué hacemos" node />
     <h2 class="max-w-3xl text-3xl font-bold tracking-tight md:text-4xl xl:text-[2.75rem]">
       Esto es lo que hacemos. <span class="text-gold-deep">Y lo que dejas de hacer tú.</span>
     </h2>
 
-    <div data-cards class="mt-12 grid gap-6 motion:gap-[18svh] md:mt-16">
+    <!-- Flex (no grid): el margen negativo de las marcas anula el hueco entre tarjetas; en grid no lo hace. -->
+    <div data-cards class="mt-10 flex flex-col gap-6 motion:gap-[18svh] md:mt-12">
       {
         services.map((s, i) => (
           <>

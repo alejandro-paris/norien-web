@@ -1,6 +1,4 @@
 ---
-import SectionLabel from '../SectionLabel.astro';
-
 // Párrafo que se "ilumina" palabra a palabra con el scroll.
 const segments = [
   { text: 'Contestamos antes de que se vayan a otro. Escribimos cuando toca volver. Cobramos sin que tengas que pedirlo.' },
@@ -9,8 +7,7 @@ const segments = [
 ---
 
 <section data-statement class="relative">
-  <div class="guide-container py-28 md:py-40">
-    <SectionLabel num="03" label="En resumen" node />
+  <div class="guide-container pt-8 pb-28 md:pt-14 md:pb-40">
     <p data-statement-text class="max-w-4xl font-display text-2xl font-medium leading-[1.2] tracking-tight sm:text-3xl md:text-4xl xl:text-[2.75rem]">
       {
         segments.map((seg, i) => (
