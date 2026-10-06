@@ -21,7 +21,7 @@ src/site.ts        datos globales: nombre, descripción SEO, email, teléfono
 src/styles/        CSS global y tokens de marca (@theme de Tailwind)
 src/layouts/       BaseLayout: <head>, SEO, cabecera y pie
 src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords
-src/components/sections/  secciones de la portada (Hero, Statement, ServiceCards, SystemGold, Demo, Solutions, Contact)
+src/components/sections/  secciones de la portada (Demo, Hero, LogoStrip, Statement, ServiceCards, SystemGold, Pricing, Solutions, Contact)
 src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis) y línea guía
 src/pages/         una ruta por fichero; robots.txt se genera desde robots.txt.ts
 ```
@@ -37,11 +37,11 @@ La portada está pensada como una página de lanzamiento: secciones que se queda
   una sección animada). Sin JS o con `prefers-reduced-motion`, la página es estática y completa.
 - Los elementos animados se marcan con atributos `data-*` (`data-hero`, `data-story`,
   `data-step`, `data-card`, `data-reveal`…) y `src/scripts/motion.ts` los busca.
-- La cabecera se vuelve oscura sobre cualquier sección con `data-dark`.
+- La cabecera se vuelve oscura sobre cualquier sección con `data-dark` (también sin animaciones).
 
 ### Línea guía
 
-Una línea de puntos baja por el margen izquierdo desde el hero hasta el vídeo demo
+Una línea de puntos baja por el margen izquierdo desde el hero hasta la sección de precios
 (SVG dentro de `[data-guide-wrap]` en `src/pages/index.astro`). Se dibuja con el scroll:
 su punta va siempre al 60 % de la altura de la pantalla (72 % en móvil).
 
@@ -58,8 +58,8 @@ al scroll mientras la tarjeta sube a su sitio, nunca con temporizador: quien baj
 ve el resultado final y quien sube lo ve retroceder. Como las tarjetas fijas se miden mal,
 los disparadores son marcas en el flujo (`[data-card-marker]`), que también hacen de nodos
 de la línea guía.
-- El último tramo va dentro de la sección del vídeo (`data-guide-final`) para que siga
-  fijo mientras el vídeo crece.
+- Termina en la sección marcada con `data-guide-end` (precios); el último tramo va dentro
+  de esa sección (`data-guide-final`), que tapa la línea del resto de la página.
 
 ## Vídeo demo
 

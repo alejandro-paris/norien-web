@@ -21,9 +21,21 @@ const $$ = <T extends Element = HTMLElement>(sel: string, scope: ParentNode = do
   Array.from(scope.querySelectorAll<T>(sel));
 const clamp = (v: number, min = 0, max = 1) => Math.min(max, Math.max(min, v));
 
-// Cabecera: fondo al hacer scroll.
+// Cabecera: fondo al hacer scroll y versión oscura mientras hay una sección oscura debajo.
 const header = $('[data-header]');
-const updateHeader = () => header?.toggleAttribute('data-scrolled', window.scrollY > 20);
+const darkSections = $$('[data-dark]');
+const updateHeader = () => {
+  if (!header) return;
+  header.toggleAttribute('data-scrolled', window.scrollY > 20);
+  const line = header.offsetHeight / 2;
+  header.toggleAttribute(
+    'data-on-dark',
+    darkSections.some((s) => {
+      const r = s.getBoundingClientRect();
+      return r.top <= line && r.bottom >= line;
+    }),
+  );
+};
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
 
@@ -38,13 +50,11 @@ if (demoVideo) {
 if (motion) {
   gsap.registerPlugin(ScrollTrigger);
   setupSmoothScroll();
-  darkHeader();
   heroIntro();
   statementScene();
   guideLine();
   servicesScene();
   goldScene();
-  demoScene();
   solutionsScene();
   reveals();
   document.fonts.ready.then(() => ScrollTrigger.refresh());
@@ -70,27 +80,23 @@ function setupSmoothScroll() {
   }
 }
 
-/** La cabecera pasa a oscuro mientras hay una sección oscura debajo. */
-function darkHeader() {
-  if (!header) return;
-  for (const section of $$('[data-dark]')) {
-    ScrollTrigger.create({
-      trigger: section,
-      start: () => `top ${header.offsetHeight}px`,
-      end: () => `bottom ${header.offsetHeight}px`,
-      onToggle: ({ isActive }) => header.toggleAttribute('data-on-dark', isActive),
-    });
-  }
-}
-
 /** Entrada del titular. */
 function heroIntro() {
+  const trigger = { trigger: '[data-hero]', start: 'top 75%', once: true };
   gsap.fromTo(
     '[data-hero] [data-word]',
     { y: 0, yPercent: 110 },
-    { yPercent: 0, duration: 1.1, ease: 'power4.out', stagger: 0.06, delay: 0.1 },
+    { yPercent: 0, duration: 1.1, ease: 'power4.out', stagger: 0.06, scrollTrigger: trigger },
   );
-  gsap.to('[data-hero] [data-intro]', { autoAlpha: 1, y: 0, duration: 1, ease: 'power3.out', stagger: 0.15, delay: 0.55 });
+  gsap.to('[data-hero] [data-intro]', {
+    autoAlpha: 1,
+    y: 0,
+    duration: 1,
+    ease: 'power3.out',
+    stagger: 0.15,
+    delay: 0.45,
+    scrollTrigger: trigger,
+  });
 }
 
 /** Párrafo que se ilumina palabra a palabra al pasar la línea. */
@@ -113,8 +119,8 @@ function guideLine() {
   const startEl = $('[data-guide-start]');
   const statement = $('[data-statement-text]');
   const after = $('[data-guide-after]');
-  const demo = $('[data-demo]');
-  if (!wrap || !svg || !startEl || !statement || !after || !demo) return;
+  const end = $('[data-guide-end]');
+  if (!wrap || !svg || !startEl || !statement || !after || !end) return;
 
   const track = $<SVGPathElement>('[data-guide-track]', svg)!;
   const path = $<SVGPathElement>('[data-guide-path]', svg)!;
@@ -150,7 +156,7 @@ function guideLine() {
     const p1 = { x: gx, y: rel(statement).y - 12 };
     const a = rel(after);
     const p2 = { x: gx, y: a.y + a.h + 56 };
-    const p3 = { x: w.width / 2, y: rel(demo).y };
+    const p3 = { x: w.width / 2, y: rel(end).y };
     const curve = (from: { x: number; y: number }, to: { x: number; y: number }) => {
       const dy = (to.y - from.y) / 2;
       return `C${from.x},${from.y + dy} ${to.x},${to.y - dy} ${to.x},${to.y}`;
@@ -320,26 +326,7 @@ function goldScene() {
   }
 }
 
-/** Demo: el vídeo crece desde una tarjeta hasta ocupar la pantalla. */
-function demoScene() {
-  const demo = $('[data-demo]');
-  if (!demo) return;
-  const small = window.innerWidth < 768;
-  gsap
-    .timeline({
-      defaults: { ease: 'none' },
-      scrollTrigger: { trigger: demo, start: 'top top', end: 'bottom bottom', scrub: 0.6 },
-    })
-    .fromTo(
-      '[data-demo-frame]',
-      { scale: small ? 0.82 : 0.5, borderRadius: small ? 24 : 56, y: window.innerHeight * (small ? 0.14 : 0.09) },
-      { scale: 1, borderRadius: 0, y: 0, duration: 1, ease: 'power1.inOut' },
-    )
-    .to(['[data-demo-copy]', '[data-guide-final]'], { autoAlpha: 0, y: -40, duration: 0.3 }, 0.2)
-    .to({}, { duration: 0.35 });
-}
-
-/** Tarifas: la tarjeta sube suavemente al entrar. */
+/** Auditoría: la tarjeta sube suavemente al entrar. */
 function solutionsScene() {
   const card = $('[data-rise-card]');
   if (!card) return;

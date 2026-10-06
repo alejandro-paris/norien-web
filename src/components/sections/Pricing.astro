@@ -1,0 +1,84 @@
+---
+// Precios de tres servicios sobre fondo azul. La línea guía termina aquí, en "Precios".
+import { siInstagram, siWhatsapp } from 'simple-icons';
+
+const line = (d: string) =>
+  `<svg viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const brand = (path: string) =>
+  `<svg viewBox="0 0 24 24" class="size-5" fill="currentColor" aria-hidden="true"><path d="${path}"/></svg>`;
+
+const plans = [
+  {
+    title: 'Llamadas perdidas',
+    text: 'Si no puedes coger el teléfono, le escribimos al momento por WhatsApp para que no se vaya a otro sitio.',
+    price: 20,
+    icons: [{ svg: line('<path d="M22 2 16 8M16 2l6 6"/><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>'), label: 'Teléfono' }],
+  },
+  {
+    title: 'Agente de atención al cliente',
+    text: 'Contesta, resuelve dudas y da citas por Instagram, WhatsApp y tu web, a cualquier hora.',
+    price: 120,
+    icons: [
+      { svg: brand(siInstagram.path), label: 'Instagram' },
+      { svg: brand(siWhatsapp.path), label: 'WhatsApp' },
+      { svg: line('<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'), label: 'Web' },
+    ],
+    featured: true,
+  },
+  {
+    title: 'Pasarela de pago',
+    text: 'Te la dejamos instalada para cobrar por enlace desde el chat o desde tu web.',
+    price: 50,
+    icons: [{ svg: line('<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>'), label: 'Pago con tarjeta' }],
+  },
+];
+---
+
+<section id="precios" data-guide-end data-dark class="relative z-30 bg-ink text-paper">
+  <!-- Tramo final de la línea guía: baja desde el borde de la sección hasta "Precios". -->
+  <span data-guide-final aria-hidden="true" class="guide-final absolute left-1/2 top-0 hidden -translate-x-1/2 motion:block"></span>
+
+  <div class="mx-auto max-w-7xl px-6 pt-28 pb-24 md:pt-36 md:pb-32">
+    <div class="mx-auto mb-14 max-w-2xl text-center md:mb-20">
+      <p class="mb-3 inline-flex flex-col items-center gap-3 text-sm font-medium text-paper/60">
+        <span data-guide-final-node aria-hidden="true" class="guide-node-dot hidden motion:block"></span>
+        Precios
+      </p>
+      <h2 data-reveal class="text-4xl font-bold tracking-tight text-paper md:text-6xl">
+        Empieza por lo que <span class="text-gold">más te urge.</span>
+      </h2>
+    </div>
+
+    <ul class="grid gap-5 md:grid-cols-3 md:gap-6">
+      {
+        plans.map((p) => (
+          <li
+            data-reveal
+            class:list={[
+              'flex flex-col rounded-[1.75rem] p-8 ring-1 md:p-9',
+              p.featured ? 'bg-paper text-ink ring-paper' : 'bg-paper/[0.04] ring-paper/10',
+            ]}
+          >
+            <div class="mb-8 flex gap-2">
+              {p.icons.map((ic) => (
+                <span
+                  class:list={['grid size-10 place-items-center rounded-full', p.featured ? 'bg-ink text-gold' : 'bg-paper/10 text-gold']}
+                  title={ic.label}
+                  set:html={ic.svg}
+                />
+              ))}
+            </div>
+            <h3 class:list={['text-2xl font-semibold leading-tight', p.featured ? 'text-ink' : 'text-paper']}>{p.title}</h3>
+            <p class:list={['mt-3 flex-1 leading-relaxed', p.featured ? 'text-ink-soft' : 'text-paper/70']}>{p.text}</p>
+            <p class:list={['mt-8 border-t pt-6', p.featured ? 'border-ink/10' : 'border-paper/10']}>
+              <span class:list={['block text-sm', p.featured ? 'text-ink-soft' : 'text-paper/60']}>Desde</span>
+              <span class:list={['font-display text-5xl font-bold tracking-tight', p.featured ? 'text-ink' : 'text-gold']}>
+                {p.price} €
+              </span>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

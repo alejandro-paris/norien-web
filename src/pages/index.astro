@@ -6,12 +6,14 @@ import Statement from '../components/sections/Statement.astro';
 import ServiceCards from '../components/sections/ServiceCards.astro';
 import SystemGold from '../components/sections/SystemGold.astro';
 import Demo from '../components/sections/Demo.astro';
+import Pricing from '../components/sections/Pricing.astro';
 import Solutions from '../components/sections/Solutions.astro';
 import Contact from '../components/sections/Contact.astro';
 ---
 
 <BaseLayout>
-  <!-- La línea guía recorre desde el hero hasta el vídeo demo. -->
+  <Demo />
+  <!-- La línea guía recorre desde el hero hasta los precios. -->
   <div data-guide-wrap class="relative">
     <svg data-guide class="pointer-events-none absolute left-0 top-0 z-20 hidden overflow-visible text-ink motion:block" aria-hidden="true">
       <defs>
@@ -33,7 +35,7 @@ import Contact from '../components/sections/Contact.astro';
     <Statement />
     <ServiceCards />
     <SystemGold />
-    <Demo />
+    <Pricing />
   </div>
   <Solutions />
   <Contact />

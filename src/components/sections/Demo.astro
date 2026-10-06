@@ -1,5 +1,5 @@
 ---
-// Sección oscura con el vídeo demo. El marco crece hasta pantalla completa con el scroll.
+// Vídeo demo: primera sección de la página, justo bajo la cabecera.
 import { SITE } from '../../site';
 import Compass from '../Compass.astro';
 
@@ -7,27 +7,17 @@ const video = SITE.demoVideo;
 const ratio = video?.ratio ?? 16 / 9;
 ---
 
-<section id="demo" data-demo data-dark class="relative z-30 bg-ink text-paper motion:h-[260vh]">
-  <div class="flex min-h-svh flex-col items-center justify-center gap-12 overflow-hidden px-6 py-24 motion:sticky motion:top-0 motion:h-svh motion:px-0 motion:py-0">
-    <!-- Tramo final de la línea guía: baja desde el borde de la sección hasta "Demo". -->
-    <span data-guide-final aria-hidden="true" class="guide-final absolute left-1/2 top-0 hidden -translate-x-1/2 motion:block"></span>
-
-    <div data-demo-copy class="relative z-10 text-center motion:absolute motion:inset-x-6 motion:top-[13svh]">
-      <p class="mb-3 inline-flex flex-col items-center gap-3 text-sm font-medium text-paper/60">
-        <span data-guide-final-node aria-hidden="true" class="guide-node-dot hidden motion:block"></span>
-        Demo
-      </p>
-      <h2 class="text-4xl font-bold tracking-tight text-paper md:text-6xl">
+<section id="demo" data-dark class="relative bg-ink pt-28 pb-14 text-paper md:pt-32 md:pb-20">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="mb-8 flex flex-col gap-2 md:mb-10 md:flex-row md:items-end md:justify-between md:gap-10">
+      <h2 class="text-3xl font-bold tracking-tight text-paper md:text-5xl">
         Te lo enseñamos en <span class="text-gold">dos minutos.</span>
       </h2>
-      <p class="mx-auto mt-4 max-w-xl text-paper/70">
-        Ejemplos reales de atención, citas, promociones y cobros.
-      </p>
+      <p class="max-w-sm text-paper/70 md:text-right">Ejemplos reales de atención, citas, promociones y cobros.</p>
     </div>
 
     <div
-      data-demo-frame
-      class="demo-frame relative w-full max-w-5xl overflow-hidden rounded-3xl bg-[#0b1140] ring-1 ring-paper/10 motion:max-w-none motion:rounded-none"
+      class="demo-frame relative w-full overflow-hidden rounded-2xl bg-[#0b1140] ring-1 ring-paper/10 md:rounded-3xl"
       style={`--ratio:${ratio}`}
     >
       {
@@ -46,12 +36,7 @@ const ratio = video?.ratio ?? 16 / 9;
         ) : (
           <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_50%_40%,#1c2464,#050a30_70%)]">
             <Compass class="absolute w-[38%] opacity-[0.07]" ring="#f7f5f0" needle="#c5a059" />
-            <div class="relative flex flex-col items-center gap-5">
-              <span class="grid size-20 place-items-center rounded-full bg-gold text-ink shadow-[0_0_60px_rgba(197,160,89,0.45)]">
-                <svg viewBox="0 0 24 24" class="ml-1 size-8" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" /></svg>
-              </span>
-              <p class="text-sm text-paper/60">Vídeo demo · próximamente</p>
-            </div>
+            <p class="relative text-sm text-paper/60">Vídeo demo · próximamente</p>
           </div>
         )
       }
@@ -62,10 +47,5 @@ const ratio = video?.ratio ?? 16 / 9;
 <style>
   .demo-frame {
     aspect-ratio: var(--ratio);
-  }
-
-  /* Con animaciones, el marco llega a ocupar la pantalla sin recortar el vídeo. */
-  :global(.motion) .demo-frame {
-    width: min(100vw, calc(100svh * var(--ratio)));
   }
 </style>
