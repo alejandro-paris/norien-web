@@ -3,7 +3,6 @@
 // mientras el vídeo crece un poco, para no pasarla de largo. La línea guía baja por su lateral.
 import { SITE } from '../../site';
 import Compass from '../Compass.astro';
-import SectionLabel from '../SectionLabel.astro';
 
 const video = SITE.demoVideo;
 const ratio = video?.ratio ?? 16 / 9;
@@ -12,7 +11,6 @@ const ratio = video?.ratio ?? 16 / 9;
 <section id="demo" data-demo data-dark class="relative bg-ink text-paper motion:h-[170vh]">
   <div class="flex flex-col justify-center py-16 motion:sticky motion:top-0 motion:min-h-svh md:py-24">
     <div class="guide-container w-full">
-      <SectionLabel num="01" label="Demo" tone="dark" node />
       <h2 class="mb-8 text-3xl font-bold tracking-tight text-paper md:mb-10 md:text-4xl xl:text-[2.75rem]">
         Te lo enseñamos en <span class="text-gold">dos minutos.</span>
       </h2>
