@@ -12,18 +12,17 @@ import Contact from '../components/sections/Contact.astro';
 ---
 
 <BaseLayout>
-  <Hero />
-  <Demo />
-  <!-- La línea guía recorre desde la franja de logos hasta los precios. -->
+  <!-- La línea guía recorre desde "Mira cómo funciona" (hero) hasta los precios. -->
   <div data-guide-wrap class="relative">
     <svg data-guide class="pointer-events-none absolute left-0 top-0 z-20 hidden overflow-visible text-ink motion:block" aria-hidden="true">
       <defs>
+        <linearGradient id="guide-grad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050a30"></stop></linearGradient>
         <mask id="guide-mask" maskUnits="userSpaceOnUse">
           <path data-guide-mask fill="none" stroke="white" stroke-width="16" stroke-linecap="round"></path>
         </mask>
       </defs>
-      <path data-guide-track fill="none" stroke="currentColor" stroke-opacity="0.14" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 12"></path>
-      <path data-guide-path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 12" mask="url(#guide-mask)"></path>
+      <path data-guide-track fill="none" stroke="url(#guide-grad)" stroke-opacity="0.14" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 12"></path>
+      <path data-guide-path fill="none" stroke="url(#guide-grad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 12" mask="url(#guide-mask)"></path>
       <g data-guide-nodes></g>
       <g data-guide-tip>
         <circle r="14" fill="#c5a059" opacity="0.2"></circle>
@@ -31,6 +30,8 @@ import Contact from '../components/sections/Contact.astro';
       </g>
     </svg>
 
+    <Hero />
+    <Demo />
     <LogoStrip />
     <Statement />
     <ServiceCards />

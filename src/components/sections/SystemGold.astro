@@ -1,8 +1,14 @@
 ---
+import SectionLabel from '../SectionLabel.astro';
+
 // Sección de fondo dorado: una frase en tipografía gigante, línea a línea.
-// Cada línea entra desde un lado y pasa de un tono apagado a azul marino al llegar a su sitio
-// (sin animaciones, todas se ven ya en azul marino).
-const words = ['Del rótulo', 'de la puerta', 'al cliente', 'que repite.'];
+// `strong` = parte destacada (sobre el dorado se destaca con el azul pleno; el resto va atenuado).
+const words = [
+  { text: 'Del primer' },
+  { text: 'mensaje' },
+  { text: 'al cliente', strong: true },
+  { text: 'que repite.', strong: true },
+];
 
 const facts = [
   { big: '1 o 2 semanas', small: 'y lo tienes funcionando' },
@@ -13,20 +19,20 @@ const facts = [
 
 <section data-system class="relative overflow-hidden bg-gold pt-24 pb-40 text-ink md:pt-36 md:pb-52">
   <div class="guide-container">
-    <p data-guide-node class="mb-8 text-sm font-medium text-ink/70">De principio a fin</p>
-    <h2 class="font-display text-[11vw] font-bold leading-[1.05] tracking-[-0.04em] text-ink md:text-[7.8vw] xl:text-[7rem]">
+    <SectionLabel num="05" label="Todo conectado" tone="gold" node class="!mb-8" />
+    <h2 class="font-display text-[14vw] font-bold leading-[1.05] tracking-[-0.04em] text-ink md:text-[10vw] xl:text-[9rem]">
       {words.map((w, i) => (
-        <span data-slide={i % 2 === 0 ? -1 : 1} class:list={['block', i % 2 === 1 && 'text-right']}>
-          {w}
+        <span data-slide={i % 2 === 0 ? -1 : 1} class:list={['block', i % 2 === 1 && 'text-right', !w.strong && 'text-ink/45']}>
+          {w.text}
         </span>
       ))}
     </h2>
 
-    <ul data-guide-after class="mt-16 grid gap-4 sm:grid-cols-3 md:mt-20 md:gap-5">
+    <ul data-guide-after class="mt-20 grid gap-px overflow-hidden rounded-3xl bg-ink/15 sm:grid-cols-3">
       {facts.map((f) => (
-        <li data-fact class="rounded-3xl bg-ink p-8 text-paper md:p-10">
-          <p class="font-display text-3xl font-bold tracking-tight text-gold md:text-4xl">{f.big}</p>
-          <p class="mt-2 text-base text-paper/75">{f.small}</p>
+        <li data-fact class="bg-gold p-8">
+          <p class="font-display text-3xl font-bold tracking-tight">{f.big}</p>
+          <p class="mt-1 text-sm text-ink/75">{f.small}</p>
         </li>
       ))}
     </ul>

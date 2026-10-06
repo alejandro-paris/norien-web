@@ -1,6 +1,7 @@
 ---
 // Precios de tres servicios sobre fondo azul. La línea guía termina aquí, en "Precios".
 import { siInstagram, siWhatsapp } from 'simple-icons';
+import SectionLabel from '../SectionLabel.astro';
 
 const line = (d: string) =>
   `<svg viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
@@ -38,14 +39,12 @@ const plans = [
   <!-- Tramo final de la línea guía: baja desde el borde de la sección hasta "Precios". -->
   <span data-guide-final aria-hidden="true" class="guide-final absolute left-1/2 top-0 hidden -translate-x-1/2 motion:block"></span>
 
-  <div class="mx-auto max-w-7xl px-6 pt-28 pb-24 md:pt-36 md:pb-32">
+  <div class="page-container pt-28 pb-24 md:pt-36 md:pb-32">
     <div class="mx-auto mb-14 max-w-2xl text-center md:mb-20">
-      <p class="mb-3 inline-flex flex-col items-center gap-3 text-sm font-medium text-paper/60">
-        <span data-guide-final-node aria-hidden="true" class="guide-node-dot hidden motion:block"></span>
-        Precios
-      </p>
-      <h2 data-reveal class="text-4xl font-bold tracking-tight text-paper md:text-6xl">
-        Lo que cuestan algunas cosas. <span class="text-gold">Sin tener que preguntar.</span>
+      <span data-guide-final-node aria-hidden="true" class="guide-node-dot mx-auto mb-4 hidden motion:block"></span>
+      <SectionLabel num="06" label="Precios" tone="dark" />
+      <h2 data-reveal class="text-3xl font-bold tracking-tight text-paper md:text-4xl xl:text-[2.75rem]">
+        Algunos de nuestros precios. <span class="text-gold">Sin preguntas.</span>
       </h2>
     </div>
 

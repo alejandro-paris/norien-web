@@ -8,7 +8,7 @@ import SplitWords from '../SplitWords.astro';
     <p data-intro class="mb-6 max-w-xl text-base text-ink-soft md:text-lg">
       Para negocios que viven de atender a sus clientes.
     </p>
-    <h1 class="max-w-5xl text-[2.7rem] font-bold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl xl:text-8xl">
+    <h1 class="max-w-4xl text-[2.6rem] font-bold leading-[1.02] tracking-tight sm:text-5xl md:text-6xl xl:text-[4.25rem]">
       <SplitWords text="Tú atiendes a quien tienes delante." />{' '}
       <span class="text-gold-deep"><SplitWords text="Del resto nos ocupamos nosotros." /></span>
     </h1>
@@ -29,9 +29,9 @@ import SplitWords from '../SplitWords.astro';
     </div>
     <p data-intro class="mt-5 text-sm text-ink-soft">30 minutos. Te decimos qué podemos quitarte de encima. Sin compromiso.</p>
 
-    <!-- Invita a bajar al vídeo -->
+    <!-- Punto de salida de la línea guía: baja junto al vídeo y acompaña hasta los precios -->
     <div data-intro class="mt-16 hidden items-center gap-3 motion:flex" aria-hidden="true">
-      <span class="block size-3 rounded-full bg-gold ring-4 ring-gold/25"></span>
+      <span data-guide-start class="block size-3 rounded-full bg-gold ring-4 ring-gold/25"></span>
       <span class="text-sm text-ink-soft">Mira cómo funciona</span>
     </div>
   </div>

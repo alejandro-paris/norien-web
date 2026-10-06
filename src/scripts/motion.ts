@@ -20,6 +20,8 @@ const $ = <T extends Element = HTMLElement>(sel: string, scope: ParentNode = doc
 const $$ = <T extends Element = HTMLElement>(sel: string, scope: ParentNode = document) =>
   Array.from(scope.querySelectorAll<T>(sel));
 const clamp = (v: number, min = 0, max = 1) => Math.min(max, Math.max(min, v));
+// Ancho máximo de `.guide-container` (76rem): el eje de la línea guía se calcula con él.
+const GUIDE_MAX = 1216;
 
 // Cabecera: fondo al hacer scroll y versión oscura mientras hay una sección oscura debajo.
 const header = $('[data-header]');
@@ -54,6 +56,7 @@ if (motion) {
   statementScene();
   guideLine();
   servicesScene();
+  demoScene();
   goldScene();
   solutionsScene();
   reveals();
@@ -117,10 +120,13 @@ function guideLine() {
   const wrap = $('[data-guide-wrap]');
   const svg = $<SVGSVGElement>('[data-guide]');
   const startEl = $('[data-guide-start]');
-  const statement = $('[data-statement-text]');
+  const demo = $('#demo');
   const after = $('[data-guide-after]');
   const end = $('[data-guide-end]');
-  if (!wrap || !svg || !startEl || !statement || !after || !end) return;
+  if (!wrap || !svg || !startEl || !demo || !after || !end) return;
+  // Sobre las secciones oscuras la línea va en dorado (en azul marino no se vería).
+  const grad = $<SVGLinearGradientElement>('#guide-grad', svg)!;
+  const darkSections = $$('[data-dark]', wrap).filter((el) => el !== end);
 
   const track = $<SVGPathElement>('[data-guide-track]', svg)!;
   const path = $<SVGPathElement>('[data-guide-path]', svg)!;
@@ -150,10 +156,12 @@ function guideLine() {
     svg.setAttribute('width', String(w.width));
     svg.setAttribute('height', String(w.height));
 
-    const gx = Math.max(0, (w.width - 1280) / 2) + (w.width >= 768 ? 48 : 22);
+    // Eje de la línea: mismo margen que `.guide-container` (ancho máx. GUIDE_MAX).
+    const gx = Math.max(0, (w.width - GUIDE_MAX) / 2) + (w.width >= 768 ? 48 : 22);
     const s = rel(startEl);
     const p0 = { x: s.x + s.w / 2, y: s.y + s.h / 2 };
-    const p1 = { x: gx, y: rel(statement).y - 12 };
+    // Desde "Mira cómo funciona" baja al margen antes del vídeo y pasa por su lateral.
+    const p1 = { x: gx, y: rel(demo).y };
     const a = rel(after);
     const p2 = { x: gx, y: a.y + a.h + 56 };
     const p3 = { x: w.width / 2, y: rel(end).y };
@@ -163,6 +171,21 @@ function guideLine() {
     };
     const d = `M${p0.x},${p0.y} ${curve(p0, p1)} L${p2.x},${p2.y} ${curve(p2, p3)}`;
     for (const p of [track, path, mask]) p.setAttribute('d', d);
+
+    grad.setAttribute('y2', String(w.height));
+    const stops = ['<stop offset="0" stop-color="#050a30"/>'];
+    for (const sec of darkSections) {
+      const r = rel(sec);
+      const a0 = r.y / w.height;
+      const a1 = (r.y + r.h) / w.height;
+      stops.push(
+        `<stop offset="${a0}" stop-color="#050a30"/>`,
+        `<stop offset="${a0}" stop-color="#c5a059"/>`,
+        `<stop offset="${a1}" stop-color="#c5a059"/>`,
+        `<stop offset="${a1}" stop-color="#050a30"/>`,
+      );
+    }
+    grad.innerHTML = stops.join('');
 
     length = path.getTotalLength();
     mask.style.strokeDasharray = `${length} ${length}`;
@@ -219,7 +242,7 @@ function guideLine() {
     for (const n of nodes) {
       const on = tipY >= n.y;
       n.g.toggleAttribute('data-active', on);
-      n.el?.classList.toggle('!text-ink', on);
+      n.el?.toggleAttribute('data-reached', on);
     }
 
     // Tramo final dentro de la sección del vídeo.
@@ -303,6 +326,23 @@ function servicesScene() {
   });
 }
 
+/** Vídeo: crece un poco mientras la sección está fijada, para no pasarlo de largo. */
+function demoScene() {
+  const demo = $('[data-demo]');
+  const frame = $('[data-demo-frame]');
+  if (!demo || !frame) return;
+  gsap.fromTo(
+    frame,
+    { scale: 0.86, y: 30 },
+    {
+      scale: 1,
+      y: 0,
+      ease: 'power1.out',
+      scrollTrigger: { trigger: demo, start: 'top 70%', end: 'bottom bottom', scrub: 0.6 },
+    },
+  );
+}
+
 /** Sección dorada: se abre como una ventana y las palabras entran desde los lados. */
 function goldScene() {
   const section = $('[data-system]');
@@ -320,14 +360,8 @@ function goldScene() {
     const dir = Number(word.dataset.slide);
     gsap.fromTo(
       word,
-      // Entra desde un lado y termina siempre en azul marino.
-      { xPercent: 35 * dir, color: 'rgba(5, 10, 48, 0.45)' },
-      {
-        xPercent: 0,
-        color: 'rgba(5, 10, 48, 1)',
-        ease: 'none',
-        scrollTrigger: { trigger: word, start: 'top bottom', end: 'top 65%', scrub: true },
-      },
+      { xPercent: 35 * dir },
+      { xPercent: 0, ease: 'none', scrollTrigger: { trigger: word, start: 'top bottom', end: 'top 65%', scrub: true } },
     );
   }
 }

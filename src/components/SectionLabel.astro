@@ -1,0 +1,31 @@
+---
+// Encabezado pequeño de sección: placa con el número + nombre de la sección.
+// `node` lo convierte en un nodo de la línea guía.
+interface Props {
+  num: string;
+  label: string;
+  tone?: 'light' | 'dark' | 'gold';
+  node?: boolean;
+  class?: string;
+}
+
+const { num, label, tone = 'light', node = false, class: className } = Astro.props;
+---
+
+<p
+  class:list={[
+    'mb-5 inline-flex items-center gap-2.5 text-sm font-medium md:mb-6',
+    tone === 'dark' ? 'text-paper/75' : tone === 'gold' ? 'text-ink/80' : 'text-ink-soft',
+    className,
+  ]}
+  {...(node ? { 'data-guide-node': '' } : {})}
+>
+  <span
+    class:list={[
+      'grid h-6 min-w-6 place-items-center rounded-md px-1 font-display text-[11px] font-bold tabular-nums',
+      tone === 'gold' ? 'bg-ink text-gold' : 'bg-gold text-ink',
+    ]}
+    aria-hidden="true">{num}</span
+  >
+  {label}
+</p>

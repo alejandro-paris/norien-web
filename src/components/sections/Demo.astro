@@ -1,42 +1,48 @@
 ---
-// Vídeo demo: va justo después del hero.
+// Vídeo demo, justo después del hero. Con animaciones, la sección se queda fija un momento
+// mientras el vídeo crece un poco, para no pasarla de largo. La línea guía baja por su lateral.
 import { SITE } from '../../site';
 import Compass from '../Compass.astro';
+import SectionLabel from '../SectionLabel.astro';
 
 const video = SITE.demoVideo;
 const ratio = video?.ratio ?? 16 / 9;
 ---
 
-<section id="demo" data-dark class="relative bg-ink py-16 text-paper md:py-24">
-  <div class="mx-auto max-w-6xl px-6">
-    <h2 class="mb-8 text-3xl font-bold tracking-tight text-paper md:mb-10 md:text-5xl">
-      Te lo enseñamos en <span class="text-gold">dos minutos.</span>
-    </h2>
+<section id="demo" data-demo data-dark class="relative bg-ink text-paper motion:h-[170vh]">
+  <div class="flex flex-col justify-center py-16 motion:sticky motion:top-0 motion:min-h-svh md:py-24">
+    <div class="guide-container w-full">
+      <SectionLabel num="01" label="Demo" tone="dark" node />
+      <h2 class="mb-8 text-3xl font-bold tracking-tight text-paper md:mb-10 md:text-4xl xl:text-[2.75rem]">
+        Te lo enseñamos en <span class="text-gold">dos minutos.</span>
+      </h2>
 
-    <div
-      class="demo-frame relative w-full overflow-hidden rounded-2xl bg-[#0b1140] ring-1 ring-paper/10 md:rounded-3xl"
-      style={`--ratio:${ratio}`}
-    >
-      {
-        video ? (
-          <video
-            class="absolute inset-0 h-full w-full object-cover"
-            src={video.src}
-            poster={video.poster}
-            controls
-            playsinline
-            preload="metadata"
-            data-demo-video
-          >
-            Tu navegador no puede reproducir este vídeo.
-          </video>
-        ) : (
-          <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_50%_40%,#1c2464,#050a30_70%)]">
-            <Compass class="absolute w-[38%] opacity-[0.07]" ring="#f7f5f0" needle="#c5a059" />
-            <p class="relative text-sm text-paper/60">Vídeo demo · próximamente</p>
-          </div>
-        )
-      }
+      <div
+        data-demo-frame
+        class="demo-frame relative mx-auto w-full overflow-hidden rounded-2xl bg-[#0b1140] ring-1 ring-paper/10 md:rounded-3xl"
+        style={`--ratio:${ratio}`}
+      >
+        {
+          video ? (
+            <video
+              class="absolute inset-0 h-full w-full object-cover"
+              src={video.src}
+              poster={video.poster}
+              controls
+              playsinline
+              preload="metadata"
+              data-demo-video
+            >
+              Tu navegador no puede reproducir este vídeo.
+            </video>
+          ) : (
+            <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_50%_40%,#1c2464,#050a30_70%)]">
+              <Compass class="absolute w-[38%] opacity-[0.07]" ring="#f7f5f0" needle="#c5a059" />
+              <p class="relative text-sm text-paper/60">Vídeo demo · próximamente</p>
+            </div>
+          )
+        }
+      </div>
     </div>
   </div>
 </section>
@@ -44,5 +50,10 @@ const ratio = video?.ratio ?? 16 / 9;
 <style>
   .demo-frame {
     aspect-ratio: var(--ratio);
+  }
+
+  /* Fijado: el vídeo no puede ser más alto que lo que queda de pantalla. */
+  :global(.motion) .demo-frame {
+    max-width: calc((100svh - 15rem) * var(--ratio));
   }
 </style>

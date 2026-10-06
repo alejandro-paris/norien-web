@@ -76,10 +76,30 @@ html.lenis body {
   overscroll-behavior: contain;
 }
 
-/* Contenedor de las secciones que recorre la línea guía: deja un margen izquierdo para ella. */
+/* Contenedor general: ancho máximo de 76rem y más margen lateral en pantallas grandes. */
+.page-container {
+  margin-inline: auto;
+  max-width: 76rem;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page-container {
+    padding-inline: 4rem;
+  }
+}
+
+/* Contenedor de las secciones que recorre la línea guía: mismo ancho, con margen izquierdo
+   reservado para la línea (su eje está a 22 px en móvil y 48 px en escritorio; ver GUIDE_MAX). */
 .guide-container {
   margin-inline: auto;
-  max-width: 80rem;
+  max-width: 76rem;
   padding-left: 3.25rem;
   padding-right: 1.5rem;
 }
@@ -88,6 +108,12 @@ html.lenis body {
   .guide-container {
     padding-left: 7rem;
     padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .guide-container {
+    padding-right: 4rem;
   }
 }
 

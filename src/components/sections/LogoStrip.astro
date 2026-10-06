@@ -14,6 +14,7 @@ import {
   siPaypal,
   siRedsys,
 } from 'simple-icons';
+import SectionLabel from '../SectionLabel.astro';
 
 const brands = [
   { icon: siWhatsapp, label: 'WhatsApp' },
@@ -31,19 +32,18 @@ const brands = [
 ---
 
 <section aria-labelledby="plataformas" class="relative">
-  <div class="guide-container relative pt-16 pb-8 text-center md:pt-24 md:pb-6">
-    <!-- Punto de salida de la línea guía (mismo eje que la línea: 22 px en móvil, 48 px en escritorio). -->
-    <span data-guide-start aria-hidden="true" class="absolute top-[4.4rem] left-[16px] hidden size-3 rounded-full bg-gold ring-4 ring-gold/25 motion:block md:top-[6.4rem] md:left-[42px]"></span>
-    <h2 id="plataformas" data-reveal class="text-3xl font-bold tracking-tight md:text-5xl">
+  <div class="guide-container pt-20 pb-8 md:pt-28 md:pb-6">
+    <SectionLabel num="02" label="Dónde trabajamos" node />
+    <h2 id="plataformas" data-reveal class="max-w-3xl text-3xl font-bold tracking-tight md:text-4xl xl:text-[2.75rem]">
       Nada nuevo que instalar. <span class="text-gold-deep">Nada nuevo que aprender.</span>
     </h2>
-    <p data-reveal class="mt-4 text-base text-ink-soft md:text-lg">
+    <p data-reveal class="mt-4 max-w-2xl text-base text-ink-soft md:text-lg">
       Trabajamos dentro de las apps que ya usáis tú y tus clientes.
     </p>
   </div>
-  <!-- En móvil, una fila con scroll horizontal (empieza a la izquierda para poder deslizarla); en escritorio, centrada. -->
+  <!-- En móvil, una fila con scroll horizontal; en escritorio, varias filas. -->
   <div data-reveal class="logo-row guide-container overflow-x-auto pb-4 md:overflow-visible">
-    <ul class="flex w-max gap-x-8 gap-y-5 pr-6 md:w-auto md:flex-wrap md:justify-center md:pr-0">
+    <ul class="flex w-max gap-x-8 gap-y-5 pr-6 md:w-auto md:max-w-4xl md:flex-wrap md:pr-0">
       {
         brands.map((b) => (
           <li class="flex shrink-0 items-center gap-2 text-ink/80">

@@ -6,7 +6,7 @@ const year = new Date().getFullYear();
 ---
 
 <footer data-dark class="bg-ink text-paper/70">
-  <div class="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-[2fr_1fr_1fr]">
+  <div class="page-container grid gap-10 py-16 md:grid-cols-[2fr_1fr_1fr]">
     <div>
       <img src={logo.src} alt="Norien" width="132" height="24" class="h-6 w-auto" loading="lazy" />
       <p class="mt-4 max-w-sm text-sm">
@@ -26,7 +26,7 @@ const year = new Date().getFullYear();
     </ul>
   </div>
   <div class="border-t border-paper/10">
-    <div class="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-6 text-xs md:flex-row md:items-center md:justify-between">
+    <div class="page-container flex flex-col gap-3 py-6 text-xs md:flex-row md:items-center md:justify-between">
       <p>&copy; {year} {SITE.name}. Todos los derechos reservados.</p>
       <ul class="flex gap-5">
         {LEGAL.map((link) => (

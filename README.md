@@ -20,7 +20,7 @@ public/            ficheros servidos tal cual (favicon, CNAME, fuentes)
 src/site.ts        datos globales: nombre, descripción SEO, email, teléfono
 src/styles/        CSS global y tokens de marca (@theme de Tailwind)
 src/layouts/       BaseLayout: <head>, SEO, cabecera y pie
-src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords
+src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords, SectionLabel (encabezado numerado de sección)
 src/components/sections/  secciones de la portada (Hero, Demo, LogoStrip, Statement, ServiceCards, SystemGold, Pricing, Solutions, Contact)
 src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis) y línea guía
 src/pages/         una ruta por fichero; robots.txt se genera desde robots.txt.ts
@@ -42,13 +42,14 @@ La portada está pensada como una página de lanzamiento: secciones que se queda
 
 ### Línea guía
 
-Una línea de puntos baja por el margen izquierdo desde la franja de logos hasta la sección de precios
+Una línea de puntos sale de "Mira cómo funciona" (hero), baja por el lateral del vídeo y sigue por el margen izquierdo hasta la sección de precios
 (SVG dentro de `[data-guide-wrap]` en `src/pages/index.astro`). Se dibuja con el scroll:
 su punta va siempre al 60 % de la altura de la pantalla (72 % en móvil).
 
 - El trazado se calcula en JS a partir de los elementos de la página, así que se adapta
   solo al contenido y al tamaño de pantalla. Las secciones que recorre usan la clase
-  `.guide-container`, que deja libre el margen izquierdo.
+  `.guide-container`, que deja libre el margen izquierdo (su ancho máximo debe coincidir con
+  `GUIDE_MAX` en `motion.ts`). Sobre secciones `data-dark` la línea se pinta en dorado.
 - Cualquier elemento con `data-guide-node` crea un nodo que se enciende al llegar la línea.
 
 ### Servicios
@@ -77,6 +78,13 @@ demoVideo: {
 Para cambiarlo: MP4 H.264 con el índice al principio (`-movflags +faststart`, HandBrake
 lo hace con "Web Optimized"), idealmente por debajo de ~20 MB, y un póster JPG.
 Actualiza `ratio` si cambian las proporciones. El vídeo se pausa solo al salir de la sección.
+
+## Maquetación
+
+- `.page-container` y `.guide-container` (en `global.css`) limitan el contenido a 76rem y
+  aumentan el margen lateral en pantallas grandes.
+- Cada sección empieza con `<SectionLabel num="0X" label="…" />`: placa dorada con el número
+  y nombre de la sección. Mantener la numeración en orden si se añaden secciones.
 
 ## Marca
 
