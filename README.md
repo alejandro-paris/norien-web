@@ -65,19 +65,26 @@ de la línea guía.
 
 ## Vídeo demo
 
-El vídeo está en `public/video/` y se configura en `demoVideo` de `src/site.ts`:
+Los vídeos están en `public/video/` y se configuran en `demoVideo` de `src/site.ts`:
 
 ```ts
 demoVideo: {
-  src: '/video/norien-demo.mp4',
+  src: '/video/norien-demo.mp4',          // 1080p, pantallas de 1024 px o más
+  srcSmall: '/video/norien-demo-720.mp4', // 720p, pantallas pequeñas
   poster: '/video/norien-demo-poster.jpg',
-  ratio: 1776 / 854, // ancho / alto del vídeo, para que el marco no lo recorte
+  ratio: 16 / 9,
 },
 ```
 
-Para cambiarlo: MP4 H.264 con el índice al principio (`-movflags +faststart`, HandBrake
-lo hace con "Web Optimized"), idealmente por debajo de ~20 MB, y un póster JPG.
-Actualiza `ratio` si cambian las proporciones. El vídeo se pausa solo al salir de la sección.
+Para regenerar la versión 720p a partir del original:
+
+```sh
+ffmpeg -i norien-demo.mp4 -vf scale=-2:720 -c:v libx264 -profile:v high -preset slow -crf 25 \
+  -pix_fmt yuv420p -c:a aac -b:a 96k -movflags +faststart norien-demo-720.mp4
+```
+
+Encima del vídeo hay un botón de play grande; al pulsarlo aparecen los controles normales y
+vuelve al terminar. El vídeo se pausa solo al salir de la sección.
 
 ## Maquetación
 

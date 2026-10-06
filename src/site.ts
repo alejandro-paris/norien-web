@@ -8,13 +8,14 @@ export const SITE = {
   phone: '+34644980352',
   phoneDisplay: '+34 644 98 03 52',
   whatsappUrl: 'https://wa.me/34644980352',
-  // Vídeo demo de la sección oscura (null = se muestra un marcador).
-  // `ratio` es ancho/alto del vídeo, para que el marco no lo recorte.
+  // Vídeo demo (null = se muestra un marcador). `srcSmall` es la versión 720p que cargan
+  // las pantallas de menos de 1024 px. `ratio` es ancho/alto, para que el marco no lo recorte.
   demoVideo: {
     src: '/video/norien-demo.mp4',
+    srcSmall: '/video/norien-demo-720.mp4',
     poster: '/video/norien-demo-poster.jpg',
-    ratio: 1776 / 854,
-  } as { src: string; poster?: string; ratio: number } | null,
+    ratio: 16 / 9,
+  } as { src: string; srcSmall?: string; poster?: string; ratio: number } | null,
 } as const;
 
 export const NAV = [

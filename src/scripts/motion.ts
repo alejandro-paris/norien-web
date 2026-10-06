@@ -41,8 +41,23 @@ const updateHeader = () => {
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
 
-// Vídeo demo: se pausa solo si el usuario sale de la sección mientras se reproduce.
+// Vídeo demo: botón de play grande hasta que se reproduce (vuelve al terminar) y pausa
+// automática si el usuario sale de la sección mientras se reproduce.
 const demoVideo = $<HTMLVideoElement>('[data-demo-video]');
+const demoPlay = $<HTMLButtonElement>('[data-demo-play]');
+if (demoVideo && demoPlay) {
+  demoVideo.controls = false;
+  demoPlay.hidden = false;
+  demoPlay.addEventListener('click', () => {
+    demoVideo.controls = true;
+    demoVideo.play();
+  });
+  demoVideo.addEventListener('play', () => (demoPlay.hidden = true));
+  demoVideo.addEventListener('ended', () => {
+    demoVideo.controls = false;
+    demoPlay.hidden = false;
+  });
+}
 if (demoVideo) {
   new IntersectionObserver(([entry]) => {
     if (!entry.isIntersecting && !demoVideo.paused) demoVideo.pause();
