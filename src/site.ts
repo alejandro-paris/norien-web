@@ -18,8 +18,14 @@ export const SITE = {
 } as const;
 
 export const NAV = [
-  { label: 'Servicios', href: '/#servicios' },
   { label: 'Demo', href: '/#demo' },
+  { label: 'Servicios', href: '/#servicios' },
   { label: 'Precios', href: '/#precios' },
   { label: 'Contacto', href: '/#contacto' },
+] as const;
+
+export const LEGAL = [
+  { label: 'Aviso legal', href: '/aviso-legal' },
+  { label: 'Privacidad', href: '/privacidad' },
+  { label: 'Cookies', href: '/cookies' },
 ] as const;

@@ -24,6 +24,7 @@ src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords
 src/components/sections/  secciones de la portada (Hero, Demo, LogoStrip, Statement, ServiceCards, SystemGold, Pricing, Solutions, Contact)
 src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis) y línea guía
 src/pages/         una ruta por fichero; robots.txt se genera desde robots.txt.ts
+                   aviso-legal, privacidad y cookies: provisionales (noindex y fuera del sitemap)
 ```
 
 ## Animaciones

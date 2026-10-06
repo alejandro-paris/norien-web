@@ -1,13 +1,14 @@
 ---
 // Párrafo que se "ilumina" palabra a palabra con el scroll.
 const segments = [
-  { text: 'Contestamos a tus clientes por WhatsApp, Instagram o teléfono. Les damos cita y les confirmamos el pedido. Les recordamos lo pendiente y les mandamos la promoción que les toca a cada uno. Y cuidamos que te encuentren en Google y en redes.' },
-  { text: 'Tú solo das el OK.', gold: true },
+  { text: 'Contestamos antes de que se vayan a otro. Escribimos cuando toca volver. Cobramos sin que tengas que pedirlo.' },
+  { text: 'Y cuidamos tu imagen, también fuera de la pantalla.', gold: true },
 ];
 ---
 
 <section data-statement class="relative">
   <div class="guide-container py-28 md:py-40">
+    <p class="mb-3 text-sm font-medium text-ink-soft md:mb-5">En resumen</p>
     <p data-statement-text class="max-w-5xl font-display text-2xl font-medium leading-[1.15] tracking-tight sm:text-4xl md:text-6xl">
       {
         segments.map((seg, i) => (

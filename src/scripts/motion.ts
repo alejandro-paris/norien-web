@@ -274,8 +274,8 @@ function servicesScene() {
         .fromTo(d('out'), pop, show, '<')
         .fromTo(d('tag'), pop, show);
     } else if (i === 1) {
-      tl.fromTo(d('slot'), { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 1.2 }, 0.4)
-        .fromTo(d('tag'), pop, show, '+=0.3');
+      tl.fromTo(d('piece'), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.35 })
+        .fromTo(d('tag'), pop, show);
     } else if (i === 2) {
       tl.fromTo(d('out'), pop, show)
         .fromTo(d('sent'), { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.4, stagger: 0.15 })
@@ -320,8 +320,14 @@ function goldScene() {
     const dir = Number(word.dataset.slide);
     gsap.fromTo(
       word,
-      { xPercent: 35 * dir },
-      { xPercent: 0, ease: 'none', scrollTrigger: { trigger: word, start: 'top bottom', end: 'top 65%', scrub: true } },
+      // Entra desde un lado y termina siempre en azul marino.
+      { xPercent: 35 * dir, color: 'rgba(5, 10, 48, 0.45)' },
+      {
+        xPercent: 0,
+        color: 'rgba(5, 10, 48, 1)',
+        ease: 'none',
+        scrollTrigger: { trigger: word, start: 'top bottom', end: 'top 65%', scrub: true },
+      },
     );
   }
 }
