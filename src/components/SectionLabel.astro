@@ -1,15 +1,14 @@
 ---
-// Encabezado pequeño de sección: placa con el número + nombre de la sección.
-// `node` lo convierte en un nodo de la línea guía.
+// Etiqueta pequeña de sección: distintivo dorado + nombre de la sección.
+// `node` la convierte en un nodo de la línea guía.
 interface Props {
-  num: string;
   label: string;
   tone?: 'light' | 'dark' | 'gold';
   node?: boolean;
   class?: string;
 }
 
-const { num, label, tone = 'light', node = false, class: className } = Astro.props;
+const { label, tone = 'light', node = false, class: className } = Astro.props;
 ---
 
 <p
@@ -20,12 +19,6 @@ const { num, label, tone = 'light', node = false, class: className } = Astro.pro
   ]}
   {...(node ? { 'data-guide-node': '' } : {})}
 >
-  <span
-    class:list={[
-      'grid h-6 min-w-6 place-items-center rounded-md px-1 font-display text-[11px] font-bold tabular-nums',
-      tone === 'gold' ? 'bg-ink text-gold' : 'bg-gold text-ink',
-    ]}
-    aria-hidden="true">{num}</span
-  >
+  <span class:list={['size-2.5 rounded-[3px]', tone === 'gold' ? 'bg-ink' : 'bg-gold']} aria-hidden="true"></span>
   {label}
 </p>

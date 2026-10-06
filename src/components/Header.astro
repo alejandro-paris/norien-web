@@ -13,8 +13,8 @@ import { NAV } from '../site';
       <img src={logo.src} alt="Norien" width="132" height="24" class="h-5 w-auto group-data-[on-dark]/header:hidden md:h-6" />
       <img src={logoLight.src} alt="" width="132" height="24" class="hidden h-5 w-auto group-data-[on-dark]/header:block md:h-6" />
     </a>
-    <nav aria-label="Principal" class="hidden md:block">
-      <ul class="flex gap-8 text-sm text-ink-soft group-data-[on-dark]/header:text-paper/70">
+    <nav aria-label="Principal" class="hidden lg:block">
+      <ul class="flex gap-6 text-sm whitespace-nowrap text-ink-soft group-data-[on-dark]/header:text-paper/70 xl:gap-8">
         {NAV.map((link) => (
           <li>
             <a href={link.href} class="transition-colors hover:text-ink group-data-[on-dark]/header:hover:text-paper">{link.label}</a>

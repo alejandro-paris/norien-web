@@ -20,7 +20,7 @@ public/            ficheros servidos tal cual (favicon, CNAME, fuentes)
 src/site.ts        datos globales: nombre, descripción SEO, email, teléfono
 src/styles/        CSS global y tokens de marca (@theme de Tailwind)
 src/layouts/       BaseLayout: <head>, SEO, cabecera y pie
-src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords, SectionLabel (encabezado numerado de sección)
+src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords, SectionLabel (etiqueta de sección)
 src/components/sections/  secciones de la portada (Hero, Demo, LogoStrip, Statement, ServiceCards, SystemGold, Pricing, Solutions, Contact)
 src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis) y línea guía
 src/pages/         una ruta por fichero; robots.txt se genera desde robots.txt.ts
@@ -90,8 +90,8 @@ vuelve al terminar. El vídeo se pausa solo al salir de la sección.
 
 - `.page-container` y `.guide-container` (en `global.css`) limitan el contenido a 76rem y
   aumentan el margen lateral en pantallas grandes.
-- Cada sección empieza con `<SectionLabel num="0X" label="…" />`: placa dorada con el número
-  y nombre de la sección. Mantener la numeración en orden si se añaden secciones.
+- Las secciones principales (Cómo trabajamos, Qué hacemos) empiezan con
+  `<SectionLabel label="…" />`: pequeño cuadrado dorado + nombre de la sección.
 
 ## Marca
 
