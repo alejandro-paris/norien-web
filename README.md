@@ -21,7 +21,7 @@ src/site.ts        datos globales: nombre, descripción SEO, email, teléfono
 src/styles/        CSS global y tokens de marca (@theme de Tailwind)
 src/layouts/       BaseLayout: <head>, SEO, cabecera y pie
 src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords
-src/components/sections/  secciones de la portada (Demo, Hero, LogoStrip, Statement, ServiceCards, SystemGold, Pricing, Solutions, Contact)
+src/components/sections/  secciones de la portada (Hero, Demo, LogoStrip, Statement, ServiceCards, SystemGold, Pricing, Solutions, Contact)
 src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis) y línea guía
 src/pages/         una ruta por fichero; robots.txt se genera desde robots.txt.ts
 ```
@@ -41,7 +41,7 @@ La portada está pensada como una página de lanzamiento: secciones que se queda
 
 ### Línea guía
 
-Una línea de puntos baja por el margen izquierdo desde el hero hasta la sección de precios
+Una línea de puntos baja por el margen izquierdo desde la franja de logos hasta la sección de precios
 (SVG dentro de `[data-guide-wrap]` en `src/pages/index.astro`). Se dibuja con el scroll:
 su punta va siempre al 60 % de la altura de la pantalla (72 % en móvil).
 

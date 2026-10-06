@@ -12,8 +12,9 @@ import Contact from '../components/sections/Contact.astro';
 ---
 
 <BaseLayout>
+  <Hero />
   <Demo />
-  <!-- La línea guía recorre desde el hero hasta los precios. -->
+  <!-- La línea guía recorre desde la franja de logos hasta los precios. -->
   <div data-guide-wrap class="relative">
     <svg data-guide class="pointer-events-none absolute left-0 top-0 z-20 hidden overflow-visible text-ink motion:block" aria-hidden="true">
       <defs>
@@ -30,7 +31,6 @@ import Contact from '../components/sections/Contact.astro';
       </g>
     </svg>
 
-    <Hero />
     <LogoStrip />
     <Statement />
     <ServiceCards />

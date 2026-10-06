@@ -1,5 +1,5 @@
 ---
-// Vídeo demo: primera sección de la página, justo bajo la cabecera.
+// Vídeo demo: va justo después del hero.
 import { SITE } from '../../site';
 import Compass from '../Compass.astro';
 
@@ -7,7 +7,7 @@ const video = SITE.demoVideo;
 const ratio = video?.ratio ?? 16 / 9;
 ---
 
-<section id="demo" data-dark class="relative bg-ink pt-28 pb-14 text-paper md:pt-32 md:pb-20">
+<section id="demo" data-dark class="relative bg-ink py-16 text-paper md:py-24">
   <div class="mx-auto max-w-6xl px-6">
     <div class="mb-8 flex flex-col gap-2 md:mb-10 md:flex-row md:items-end md:justify-between md:gap-10">
       <h2 class="text-3xl font-bold tracking-tight text-paper md:text-5xl">
