@@ -69,14 +69,14 @@ const people = ['MR', 'JL', 'AP', 'SG', 'CN', 'LB'];
               class="service-card origin-top rounded-[2rem] bg-white p-6 shadow-[0_40px_80px_-40px_rgba(5,10,48,0.3)] ring-1 ring-ink/5 motion:sticky md:p-10"
               style={`--i:${i}`}
             >
-              {/* Número y nombre del servicio, arriba del todo de la tarjeta */}
-              <p class="mb-4 flex items-center gap-2.5 text-sm md:mb-6">
-                <span class="font-display font-bold text-gold-deep">0{i + 1}</span>
-                <span class="h-px w-4 bg-ink/25" aria-hidden="true" />
-                <span class="font-medium text-ink-soft">{s.label}</span>
-              </p>
-              <div class="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-center md:gap-12">
+              <div class="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-start md:gap-12">
                 <div>
+                  {/* Número y nombre del servicio, en la columna de texto (sin fila propia) */}
+                  <p class="mb-3 flex items-center gap-2.5 text-sm md:mb-4">
+                    <span class="font-display font-bold text-gold-deep">0{i + 1}</span>
+                    <span class="h-px w-4 bg-ink/25" aria-hidden="true" />
+                    <span class="font-medium text-ink-soft">{s.label}</span>
+                  </p>
                   <h3 class="mb-3 text-2xl font-semibold leading-tight md:text-3xl">{s.title}</h3>
                   <p class="text-base leading-relaxed text-ink-soft md:text-lg">{s.text}</p>
                 </div>
