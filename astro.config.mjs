@@ -6,12 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://norien.es',
   trailingSlash: 'ignore',
-  integrations: [
-    sitemap({
-      // Páginas legales provisionales (noindex): fuera del sitemap hasta tener los textos.
-      filter: (page) => !/\/(aviso-legal|privacidad|cookies)\/?$/.test(page),
-    }),
-  ],
+  integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },

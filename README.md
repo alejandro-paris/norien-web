@@ -22,9 +22,11 @@ src/styles/        CSS global y tokens de marca (@theme de Tailwind)
 src/layouts/       BaseLayout: <head>, SEO, cabecera y pie
 src/components/    Seo, Header, Footer, Compass (símbolo), SplitWords, SectionLabel (etiqueta de sección)
 src/components/sections/  secciones de la portada (Hero, Demo, LogoStrip, Statement, ServiceCards, SystemGold, Pricing, Solutions, Contact)
-src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis) y línea guía
+src/scripts/motion.ts     animaciones con scroll (GSAP ScrollTrigger + Lenis) y línea guía (solo portada)
+src/scripts/header.ts     cabecera: fondo al hacer scroll y modo oscuro (todas las páginas)
 src/pages/         una ruta por fichero; robots.txt se genera desde robots.txt.ts
-                   aviso-legal, privacidad y cookies: provisionales (noindex y fuera del sitemap)
+                   aviso-legal.md y privacidad.md: textos legales en Markdown (plantilla LegalLayout);
+                   el enlace «Cookies» del pie apunta a /privacidad#cookies
 ```
 
 ## Animaciones
@@ -85,6 +87,14 @@ ffmpeg -i norien-demo.mp4 -vf scale=-2:720 -c:v libx264 -profile:v high -preset 
 
 Encima del vídeo hay un botón de play grande; al pulsarlo aparecen los controles normales y
 vuelve al terminar. El vídeo se pausa solo al salir de la sección.
+
+## Cookies
+
+La web no instala cookies ni usa `localStorage`/`sessionStorage`, y no hace peticiones a
+dominios externos (fuentes, vídeo y logos se sirven desde el propio sitio). Comprobado en
+el build de producción el 8/10/2026. Si se añade analítica, un mapa, un vídeo incrustado de
+terceros, etc., hay que revisar la sección de cookies de `privacidad.md` y, si instala
+cookies no técnicas, añadir un aviso de consentimiento.
 
 ## Maquetación
 

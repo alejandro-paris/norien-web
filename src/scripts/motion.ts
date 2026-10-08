@@ -23,23 +23,6 @@ const clamp = (v: number, min = 0, max = 1) => Math.min(max, Math.max(min, v));
 // Ancho máximo de `.guide-container` (76rem): el eje de la línea guía se calcula con él.
 const GUIDE_MAX = 1216;
 
-// Cabecera: fondo al hacer scroll y versión oscura mientras hay una sección oscura debajo.
-const header = $('[data-header]');
-const darkSections = $$('[data-dark]');
-const updateHeader = () => {
-  if (!header) return;
-  header.toggleAttribute('data-scrolled', window.scrollY > 20);
-  const line = header.offsetHeight / 2;
-  header.toggleAttribute(
-    'data-on-dark',
-    darkSections.some((s) => {
-      const r = s.getBoundingClientRect();
-      return r.top <= line && r.bottom >= line;
-    }),
-  );
-};
-window.addEventListener('scroll', updateHeader, { passive: true });
-updateHeader();
 
 // Vídeo demo: botón de play grande hasta que se reproduce (vuelve al terminar) y pausa
 // automática si el usuario sale de la sección mientras se reproduce.

@@ -28,5 +28,5 @@ export const NAV = [
 export const LEGAL = [
   { label: 'Aviso legal', href: '/aviso-legal' },
   { label: 'Privacidad', href: '/privacidad' },
-  { label: 'Cookies', href: '/cookies' },
+  { label: 'Cookies', href: '/privacidad#cookies' },
 ] as const;
