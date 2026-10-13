@@ -327,18 +327,33 @@ function servicesScene() {
 /** Vídeo: crece un poco mientras la sección está fijada, para no pasarlo de largo. */
 function demoScene() {
   const demo = $('[data-demo]');
+  const pin = $('[data-demo-pin]');
   const frame = $('[data-demo-frame]');
-  if (!demo || !frame) return;
-  gsap.fromTo(
-    frame,
-    { scale: 0.86, y: 30 },
-    {
-      scale: 1,
-      y: 0,
-      ease: 'power1.out',
-      scrollTrigger: { trigger: demo, start: 'top 70%', end: 'bottom bottom', scrub: 0.6 },
-    },
-  );
+  const title = $('[data-demo-title]');
+  if (!demo || !pin || !frame || !title) return;
+
+  // Tamaño y posición finales: el vídeo sube hasta donde empieza el titular y crece lo que
+  // quepa sin pisar la línea guía ni salirse de la pantalla. Las medidas son sin transformar
+  // y relativas al bloque fijo, que está en top: 0 al fijarse.
+  const fit = () => {
+    const w = frame.offsetWidth;
+    const h = frame.offsetHeight;
+    const vw = pin.clientWidth;
+    const gx = Math.max(0, (vw - GUIDE_MAX) / 2) + (vw >= 768 ? 48 : 22);
+    const side = Math.min(frame.offsetLeft - gx, vw - (frame.offsetLeft + w)) - 20;
+    const scale = Math.max(1, Math.min(1 + (2 * side) / w, (innerHeight - title.offsetTop - 24) / h));
+    return { scale, y: title.offsetTop - (frame.offsetTop + (h * (1 - scale)) / 2) };
+  };
+
+  // Un solo recorrido: entra creciendo hasta que la sección se fija (85% de pantalla) y,
+  // ya fija (70%), el titular se va y el vídeo sube a su sitio y crece hasta taparlo.
+  const tl = gsap.timeline({
+    scrollTrigger: { trigger: demo, start: 'top 85%', end: 'bottom bottom', scrub: 0.6, invalidateOnRefresh: true },
+  });
+  tl.fromTo(frame, { scale: 0.86, y: 30 }, { scale: 1, y: 0, ease: 'none', duration: 0.85 })
+    .to(title, { autoAlpha: 0, y: -24, ease: 'none', duration: 0.25 }, 0.85)
+    .to(frame, { scale: () => fit().scale, y: () => fit().y, ease: 'power1.inOut', duration: 0.5 }, 0.85)
+    .to({}, { duration: 0.2 });
 }
 
 /** Sección dorada: se abre como una ventana y las palabras entran desde los lados. */

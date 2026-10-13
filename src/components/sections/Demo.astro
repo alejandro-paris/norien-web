@@ -1,24 +1,27 @@
 ---
-// Vídeo demo, justo después del hero. Con animaciones, la sección se queda fija un momento
-// mientras el vídeo crece un poco, para no pasarla de largo. La línea guía baja por su lateral.
+// Vídeo demo, justo después del hero. Con animaciones, la sección se queda fija un momento:
+// el titular se desvanece y el vídeo sube y crece hasta taparlo. La línea guía baja por su lateral.
 import { SITE } from '../../site';
 import Compass from '../Compass.astro';
 
 const video = SITE.demoVideo;
 const ratio = video?.ratio ?? 16 / 9;
+const ratioMobile = video?.mobile?.ratio ?? ratio;
+// Debe coincidir con el breakpoint `md` de Tailwind y con la media query del CSS de abajo.
+const MOBILE = '(max-width: 767px)';
 ---
 
 <section id="demo" data-demo data-dark class="relative bg-ink text-paper motion:h-[170vh]">
-  <div class="flex flex-col justify-center py-16 motion:sticky motion:top-0 motion:min-h-svh md:py-24">
+  <div data-demo-pin class="flex flex-col justify-center py-16 motion:sticky motion:top-0 motion:min-h-svh md:py-24">
     <div class="guide-container w-full">
-      <h2 class="mb-8 text-3xl font-bold tracking-tight text-paper md:mb-10 md:text-4xl xl:text-[2.75rem]">
+      <h2 data-demo-title class="mb-8 text-3xl font-bold tracking-tight text-paper md:mb-10 md:text-4xl xl:text-[2.75rem]">
         Te lo enseñamos en <span class="text-gold">dos minutos.</span>
       </h2>
 
       <div
         data-demo-frame
         class="demo-frame relative mx-auto w-full overflow-hidden rounded-2xl bg-[#0b1140] ring-1 ring-paper/10 md:rounded-3xl"
-        style={`--ratio:${ratio}`}
+        style={`--ratio-d:${ratio};--ratio-m:${ratioMobile}`}
       >
         {
           video ? (
@@ -31,11 +34,20 @@ const ratio = video?.ratio ?? 16 / 9;
                 preload="metadata"
                 data-demo-video
               >
-                {/* El navegador usa la primera fuente cuyo `media` encaja: 720p en pantallas pequeñas. */}
-                {video.srcSmall && <source src={video.srcSmall} type="video/mp4" media="(max-width: 1023px)" />}
+                {/* El navegador usa la primera fuente cuyo `media` encaja: la vertical en móvil. */}
+                {video.mobile && <source src={video.mobile.src} type="video/mp4" media={MOBILE} />}
                 <source src={video.src} type="video/mp4" />
                 Tu navegador no puede reproducir este vídeo.
               </video>
+              {/* La portada del atributo `poster` no admite media queries: en móvil se cambia por la vertical. */}
+              {video.mobile && (
+                <script
+                  is:inline
+                  define:vars={{ poster: video.mobile.poster, query: MOBILE }}
+                >
+                  if (matchMedia(query).matches) document.querySelector('[data-demo-video]').poster = poster;
+                </script>
+              )}
               {/* Botón de play grande. Oculto sin JS (el vídeo conserva sus controles normales). */}
               <button
                 type="button"
@@ -63,8 +75,17 @@ const ratio = video?.ratio ?? 16 / 9;
 </section>
 
 <style>
+  /* La proporción va en una variable para que la media query pueda cambiarla
+     (el estilo en línea ganaría a cualquier regla). */
   .demo-frame {
+    --ratio: var(--ratio-d);
     aspect-ratio: var(--ratio);
+  }
+
+  @media (max-width: 767px) {
+    .demo-frame {
+      --ratio: var(--ratio-m);
+    }
   }
 
   /* Fijado: el vídeo no puede ser más alto que lo que queda de pantalla. */

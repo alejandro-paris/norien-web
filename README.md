@@ -71,18 +71,21 @@ Los vídeos están en `public/video/` y se configuran en `demoVideo` de `src/sit
 
 ```ts
 demoVideo: {
-  src: '/video/norien-demo.mp4',          // 1080p, pantallas de 1024 px o más
-  srcSmall: '/video/norien-demo-720.mp4', // 720p, pantallas pequeñas
+  src: '/video/norien-demo.mp4',          // 1080p horizontal, desde 768 px
   poster: '/video/norien-demo-poster.jpg',
   ratio: 16 / 9,
+  // Versión vertical del feed de Instagram, para móvil (menos de 768 px).
+  mobile: { src: '/video/norien-demo-feed.mp4', poster: '/video/norien-demo-feed-poster.jpg', ratio: 824 / 1080 },
 },
 ```
 
-Para regenerar la versión 720p a partir del original:
+En móvil, la portada vertical la pone un script en línea junto al vídeo (el atributo
+`poster` no admite media queries).
+
+La versión vertical se sube tal cual sale de edición (60 fps). Para sacar su portada:
 
 ```sh
-ffmpeg -i norien-demo.mp4 -vf scale=-2:720 -c:v libx264 -profile:v high -preset slow -crf 25 \
-  -pix_fmt yuv420p -c:a aac -b:a 96k -movflags +faststart norien-demo-720.mp4
+ffmpeg -ss 10 -i norien-demo-feed.mp4 -frames:v 1 -q:v 3 norien-demo-feed-poster.jpg
 ```
 
 Encima del vídeo hay un botón de play grande; al pulsarlo aparecen los controles normales y
